@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | RealTech Labs</title>
+  <meta name="description" content="Contact RealTech Labs for software development, AI solutions, transcription, moderation, and digital services." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container">
+    <h1 class="logo">RealTech Labs</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="btn">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page">
+  <div class="container">
+    <h2>Contact RealTech Labs</h2>
+    <p>
+      Have a project, service request, or question?  
+      Fill out the form below and we’ll respond professionally and promptly.
+    </p>
+
+    <form 
+      action="https://formspree.io/f/mzdpqgzv" 
+      method="POST"
+      class="contact-form"
+    >
+
+      <label>
+        Full Name
+        <input type="text" name="name" required />
+      </label>
+
+      <label>
+        Email Address
+        <input type="email" name="email" required />
+      </label>
+
+      <label>
+        Service Needed
+        <select name="service" required>
+          <option value="">Select a service</option>
+          <option>Software Development & Automation</option>
+          <option>AI Solutions & Training</option>
+          <option>Transcription / Captioning / Subtitling</option>
+          <option>Chat & Content Moderation</option>
+          <option>Freelancing Guidance</option>
+        </select>
+      </label>
+
+      <label>
+        Message
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+
+      <!-- Anti-spam -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button type="submit" class="btn primary">
+        Send Message
+      </button>
+
+    </form>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> realltechlabs@gmail.com</p>
+      <p><strong>Availability:</strong> Remote · Global</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2025 RealTech Labs. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
