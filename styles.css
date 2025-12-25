@@ -10,20 +10,17 @@ body {
   line-height: 1.6;
 }
 
+/* Layout */
 .container {
   width: 90%;
   max-width: 1100px;
   margin: auto;
 }
 
+/* Navigation */
 .navbar {
   background: #0f172a;
   padding: 1rem 0;
-}
-
-.logo {
-  color: white;
-  margin: 0;
 }
 
 .navbar .container {
@@ -32,30 +29,51 @@ body {
   align-items: center;
 }
 
+.logo {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
 .navbar nav a {
-  color: white;
+  color: #e5e7eb;
   margin-left: 1rem;
   text-decoration: none;
   font-weight: 500;
 }
 
-.hero-image {
+.navbar nav a.active {
+  color: #38bdf8;
+}
+
+.navbar nav .btn {
+  background: #2563eb;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+/* Hero */
+.hero {
   background-image: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80");
   background-size: cover;
   background-position: center;
   padding: 5rem 0;
-  color: white;
+  color: #ffffff;
 }
 
 .hero-content {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.8);
   padding: 2.5rem;
   border-radius: 8px;
 }
 
+.hero-actions {
+  margin-top: 1.5rem;
+}
+
+/* Buttons */
 .btn {
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
@@ -64,18 +82,28 @@ body {
 
 .primary {
   background: #2563eb;
-  color: white;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
 }
 
 .secondary {
-  border: 2px solid #2563eb;
-  color: white;
+  border: 2px solid #38bdf8;
+  color: #ffffff;
+  padding: 0.5rem 1.1rem;
+  border-radius: 4px;
 }
 
-.features {
+/* Sections */
+.section {
   padding: 3rem 0;
 }
 
+.section.light {
+  background: #f8fafc;
+}
+
+/* Grid & Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -83,10 +111,10 @@ body {
 }
 
 .card {
+  background: #ffffff;
   border: 1px solid #e5e7eb;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
-  background: white;
 }
 
 .card img {
@@ -104,142 +132,52 @@ body {
   padding-bottom: 1rem;
 }
 
-.page {
-  padding: 3rem 0;
-}
-
-.service-block img {
-  width: 100%;
-  max-height: 220px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-}
-
-.trust-section {
-  background: #f8fafc;
-  padding: 3rem 0;
-}
-
-.trust-grid {
+/* Trust & How We Work */
+.split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: center;
 }
 
-.trust-grid img {
+.split img {
   width: 100%;
   border-radius: 8px;
 }
 
+/* Footer */
 .footer {
   background: #0f172a;
-  color: white;
+  color: #ffffff;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
 }
 
-.contact-form {
-  max-width: 600px;
-  margin-top: 2rem;
-}
-
-.contact-form label {
-  display: block;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  padding: 0.6rem;
-  margin-top: 0.3rem;
-  border: 1px solid #cbd5e1;
+  background: #020617;
+  color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.cookie-banner a {
+  color: #38bdf8;
+  text-decoration: underline;
+}
+
+.cookie-banner button {
+  background: #38bdf8;
+  border: none;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
-  font-size: 1rem;
-}
-
-.contact-form button {
-  margin-top: 1rem;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.pricing-card {
-  border: 1px solid #e2e8f0;
-  padding: 1.5rem;
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.pricing-card h3 {
-  margin-bottom: 0.5rem;
-}
-
-.price {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0.5rem 0 1rem;
-}
-
-.pricing-card ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1rem;
-}
-
-.pricing-card ul li {
-  margin-bottom: 0.4rem;
-}
-
-.pricing-card.highlight {
-  border: 2px solid #2563eb;
-}
-
-.contact-info {
-  margin-top: 2rem;
-  font-size: 0.95rem;
-  color: #475569;
-}
-
-.work-section {
-  padding: 3rem 0;
-  background: #ffffff;
-}
-
-.work-section .step-card {
-  padding: 1.5rem;
-}
-
-.subtitle {
-  color: #475569;
-  margin-bottom: 2rem;
-}
-
-.testimonials {
-  background: #f8fafc;
-  padding: 3rem 0;
-}
-
-.testimonial-card {
-  text-align: center;
-  padding: 1.5rem;
-}
-
-.testimonial-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
+  cursor: pointer;
+  font-weight: 600;
 }
