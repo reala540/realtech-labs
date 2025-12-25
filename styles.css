@@ -211,3 +211,17 @@ body {
   font-size: 0.95rem;
   color: #475569;
 }
+
+.work-section {
+  padding: 3rem 0;
+  background: #ffffff;
+}
+
+.work-section .step-card {
+  padding: 1.5rem;
+}
+
+.subtitle {
+  color: #475569;
+  margin-bottom: 2rem;
+}
