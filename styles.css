@@ -225,3 +225,21 @@ body {
   color: #475569;
   margin-bottom: 2rem;
 }
+
+.testimonials {
+  background: #f8fafc;
+  padding: 3rem 0;
+}
+
+.testimonial-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
