@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://realtech-labs.vercel.app/</loc>
+    <lastmod>2025-03-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://realtech-labs.vercel.app/services.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://realtech-labs.vercel.app/pricing.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://realtech-labs.vercel.app/about.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://realtech-labs.vercel.app/contact.html</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
