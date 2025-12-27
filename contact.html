@@ -3,156 +3,390 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | RealTech Labs</title>
-
-  <meta name="description" content="Contact RealTech Labs for software development, AI solutions, transcription, moderation, and digital services." />
-
-  <!-- MAIN CSS -->
+  <title>Pricing & Booking | RealTech Labs</title>
+  <meta name="description" content="Transparent pricing and easy booking for software development, AI services, transcription, moderation, and freelancing guidance by RealTech Labs." />
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- FONT AWESOME (required for form feedback icons) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-papNM8E9JteLoI0lp4rWuIwoMvVJE9idh+NROm4tW7x1YgnPZXoqBYwygJyI072QtdgQXl3k5ufADG7n2AFD2A=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <div class="container">
-    <!-- CLICKABLE LOGO (HOME BUTTON) -->
-    <a href="index.html" class="logo" aria-label="RealTech Labs Home">
-      RealTech Labs
-    </a>
-
+    <a href="/" class="logo" aria-label="RealTech Labs Home">RealTech Labs</a>
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
-      <a href="pricing.html">Pricing</a>
+      <a href="pricing.html" class="active">Pricing</a>
       <a href="about.html">About</a>
-      <a href="contact.html" class="btn primary">Contact</a>
+      <a href="contact.html" class="btn">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- PAGE CONTENT -->
 <section class="page">
   <div class="container">
-    <h2>Contact RealTech Labs</h2>
-    <p>
-      Have a project, service request, or question?<br>
-      Fill out the form below and we’ll respond professionally and promptly.
-    </p>
+    <h2>Transparent Pricing & Booking</h2>
 
-    <!-- CONTACT FORM -->
-    <form 
-      action="https://formspree.io/f/mzdpqgzv" 
-      method="POST"
-      class="contact-form"
-    >
-
-      <label>
-        Full Name
-        <input type="text" name="name" required />
-      </label>
-
-      <label>
-        Email Address
-        <input type="email" name="email" required />
-      </label>
-
-      <label>
-        Service Needed
-        <select name="service" required>
-          <option value="">Select a service</option>
-          <option>Software Development & Automation</option>
-          <option>AI Solutions & Training</option>
-          <option>Transcription / Captioning / Subtitling</option>
-          <option>Chat & Content Moderation</option>
-          <option>Freelancing Guidance</option>
-        </select>
-      </label>
-
-      <label>
-        Message
-        <textarea name="message" rows="6" required></textarea>
-      </label>
-
-      <!-- Anti-spam honeypot -->
-      <input type="text" name="_gotcha" style="display:none">
-
-      <button type="submit" class="btn primary">
-        Send Message
-      </button>
-
-    </form>
-
-    <!-- NEW: Response Time Note -->
-    <p style="margin-top:1rem;color:#64748b;">
-      You’ll receive a professional response within 24 hours.
-    </p>
-
-    <!-- CONTACT DETAILS -->
-    <div class="contact-info">
-      <p><strong>Email:</strong> realltechlabs@gmail.com</p>
-      <p><strong>Availability:</strong> Remote · Global</p>
+    <div class="pricing-info-box">
+      <p>
+        <strong>Prices shown are starting rates.</strong> Final quotes depend on scope, 
+        complexity, turnaround time, and volume. We provide detailed estimates before work begins.
+      </p>
+      <p>
+        <strong>Payment:</strong> 50% upfront, 50% upon completion. Multiple revision rounds included.
+      </p>
+      <p>
+        <strong>No surprises.</strong> All terms documented in writing. Additional work incurs additional cost.
+      </p>
     </div>
+
+    <div class="pricing-grid">
+
+      <!-- PRICING CARD 1 -->
+      <div class="pricing-card">
+        <h3>Software Development & Automation</h3>
+        <p class="price">From $100/hour</p>
+        <p class="pricing-desc">Fixed or hourly pricing available</p>
+        
+        <h4 style="margin-top: 1.5rem; color: #2563eb;">Typically Includes:</h4>
+        <ul>
+          <li>Custom software builds</li>
+          <li>API development & integration</li>
+          <li>Process automation scripts</li>
+          <li>Database architecture</li>
+          <li>Testing & QA</li>
+          <li>Deployment</li>
+          <li>30 days support</li>
+        </ul>
+
+        <h4 style="color: #2563eb;">Example Projects:</h4>
+        <ul>
+          <li><strong>Bot or Script:</strong> $500 - $2,000</li>
+          <li><strong>API Integration:</strong> $1,500 - $5,000</li>
+          <li><strong>Small Website:</strong> $3,000 - $10,000</li>
+          <li><strong>Complex System:</strong> $10,000+</li>
+        </ul>
+
+        <a href="https://calendly.com/realltechlabs/free-consultation" target="_blank" rel="noopener noreferrer" class="btn primary">
+          Schedule Consultation
+        </a>
+      </div>
+
+      <!-- PRICING CARD 2 -->
+      <div class="pricing-card">
+        <h3>AI Solutions & Training</h3>
+        <p class="price">From $80/hour</p>
+        <p class="pricing-desc">One-on-one sessions or project-based</p>
+
+        <h4 style="margin-top: 1.5rem; color: #2563eb;">Typically Includes:</h4>
+        <ul>
+          <li>AI chatbot development</li>
+          <li>AI workflow automation</li>
+          <li>Model integration</li>
+          <li>Hands-on training</li>
+          <li>Implementation guidance</li>
+          <li>Testing & optimization</li>
+          <li>Follow-up support</li>
+        </ul>
+
+        <h4 style="color: #2563eb;">Example Projects:</h4>
+        <ul>
+          <li><strong>Chatbot Setup:</strong> $1,000 - $3,000</li>
+          <li><strong>AI Training Session:</strong> $200 - $500</li>
+          <li><strong>AI Integration:</strong> $2,000 - $8,000</li>
+          <li><strong>Full AI System:</strong> $5,000+</li>
+        </ul>
+
+        <a href="https://calendly.com/realltechlabs/free-consultation" target="_blank" rel="noopener noreferrer" class="btn primary">
+          Schedule Consultation
+        </a>
+      </div>
+
+      <!-- PRICING CARD 3 -->
+      <div class="pricing-card">
+        <h3>Transcription & Captioning</h3>
+        <p class="price">From $1 - $3/minute</p>
+        <p class="pricing-desc">Depends on format & turnaround</p>
+
+        <h4 style="margin-top: 1.5rem; color: #2563eb;">Pricing by Type:</h4>
+        <ul>
+          <li><strong>AI Transcription:</strong> $1 - $1.50/min</li>
+          <li><strong>Hybrid (Human+AI):</strong> $2 - $2.50/min</li>
+          <li><strong>100% Human:</strong> $2.50 - $3/min</li>
+          <li><strong>Captions/Subtitles:</strong> Add 30%</li>
+        </ul>
+
+        <h4 style="color: #2563eb;">Example Projects:</h4>
+        <ul>
+          <li><strong>1 Hour Podcast:</strong> $60 - $180</li>
+          <li><strong>30-Min Video:</strong> $30 - $90</li>
+          <li><strong>Interview + Captions:</strong> $150 - $300</li>
+          <li><strong>Bulk Orders:</strong> 10-20% discount</li>
+        </ul>
+
+        <a href="https://calendly.com/realltechlabs/free-consultation" target="_blank" rel="noopener noreferrer" class="btn primary">
+          Order Service
+        </a>
+      </div>
+
+      <!-- PRICING CARD 4 -->
+      <div class="pricing-card">
+        <h3>Chat & Content Moderation</h3>
+        <p class="price">From $50/week</p>
+        <p class="pricing-desc">Flexible hours & ongoing support</p>
+
+        <h4 style="margin-top: 1.5rem; color: #2563eb;">Typically Includes:</h4>
+        <ul>
+          <li>Live moderation (hours to be defined)</li>
+          <li>Community rule enforcement</li>
+          <li>Professional handling</li>
+          <li>Daily reports</li>
+          <li>Ban/escalation management</li>
+          <li>Client communication</li>
+          <li>Weekly review</li>
+        </ul>
+
+        <h4 style="color: #2563eb;">Pricing Tiers:</h4>
+        <ul>
+          <li><strong>Starter:</strong> $50 - $150/week</li>
+          <li><strong>Standard:</strong> $150 - $400/week</li>
+          <li><strong>Premium:</strong> $400+/week</li>
+          <li><strong>Custom:</strong> Full-time available</li>
+        </ul>
+
+        <a href="https://calendly.com/realltechlabs/free-consultation" target="_blank" rel="noopener noreferrer" class="btn primary">
+          Get Started
+        </a>
+      </div>
+
+      <!-- PRICING CARD 5 -->
+      <div class="pricing-card highlight">
+        <h3>Freelancing Guidance</h3>
+        <p class="price">$20 / session</p>
+        <p class="pricing-desc">1-hour one-on-one mentorship</p>
+
+        <h4 style="margin-top: 1.5rem; color: #2563eb;">Each Session Covers:</h4>
+        <ul>
+          <li>Career assessment</li>
+          <li>Platform setup & optimization</li>
+          <li>Profile & proposal review</li>
+          <li>Pricing strategy</li>
+          <li>Client acquisition</li>
+          <li>Q&A on your situation</li>
+        </ul>
+
+        <h4 style="color: #2563eb;">Common Packages:</h4>
+        <ul>
+          <li><strong>Single Session:</strong> $20</li>
+          <li><strong>3 Sessions:</strong> $50 (save $10)</li>
+          <li><strong>Monthly (4x):</strong> $70 (save $10)</li>
+          <li><strong>Custom Plan:</strong> Contact us</li>
+        </ul>
+
+        <a href="https://calendly.com/realltechlabs/freelancing-mentorship" target="_blank" rel="noopener noreferrer" class="btn primary">
+          Book Session
+        </a>
+      </div>
+
+    </div>
+
+    <!-- PAYMENT & TERMS SECTION -->
+    <div class="payment-terms" style="margin-top: 3rem; background: #f8fafc; padding: 2rem; border-radius: 8px; border-left: 4px solid #2563eb;">
+      <h3 style="color: #2563eb; margin-bottom: 1rem;">Payment Terms & Policies</h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+        <div>
+          <h4 style="color: #2563eb;">Payment Methods</h4>
+          <ul>
+            <li>Bank transfer (preferred)</li>
+            <li>Credit card (Stripe)</li>
+            <li>PayPal</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: #2563eb;">Project Timeline</h4>
+          <ul>
+            <li>50% due to start work</li>
+            <li>50% due on completion</li>
+            <li>Large projects: payment schedule available</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: #2563eb;">Revisions & Changes</h4>
+          <ul>
+            <li>Unlimited revisions included</li>
+            <li>Scope changes incur additional cost</li>
+            <li>Changes documented in writing</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color: #2563eb;">Refund Policy</h4>
+          <ul>
+            <li>Refunds evaluated case-by-case</li>
+            <li>Based on work completed</li>
+            <li>Non-refundable once delivered</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div style="margin-top: 3rem;">
+      <h3 style="margin-bottom: 1.5rem;">Pricing FAQ</h3>
+
+      <div class="faq-grid">
+
+        <div class="faq-item">
+          <h4>How do you calculate project cost?</h4>
+          <p>We provide a detailed estimate after initial consultation. Includes breakdown of hours, materials, and any third-party costs.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Do you offer discounts for bulk work?</h4>
+          <p>Yes. Ongoing projects (10+ hours/month) and bulk services receive 10-20% discount. Contact us for custom pricing.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>What about rush fees?</h4>
+          <p>Expedited turnaround available. Rush fee is 25-50% of project cost depending on timeline. Discuss during consultation.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Can I change my scope mid-project?</h4>
+          <p>Yes. Scope changes are documented and may increase cost. We'll notify you of any time/cost impact before proceeding.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>Do you have payment plans?</h4>
+          <p>For projects over $5,000, we offer payment schedules. Discuss during consultation. First 50% due to begin work.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>What if I'm not satisfied?</h4>
+          <p>We include unlimited revisions. If major issues exist after delivery, we address them at no cost. Refunds handled case-by-case.</p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    <p>© 2025 RealTech Labs. All rights reserved.</p>
+
+    <div class="footer-links">
+      <h4>RealTech Labs</h4>
+      <p>Professional software, AI, and digital solutions.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Services</h4>
+      <a href="services.html#software">Software & Automation</a>
+      <a href="services.html#ai">AI Solutions</a>
+      <a href="services.html#transcription">Transcription</a>
+      <a href="services.html#moderation">Moderation</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Support</h4>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:realltechlabs@gmail.com">realltechlabs@gmail.com</a></p>
+      <p><i class="fas fa-globe"></i> Remote - Global</p>
+      <p><i class="fas fa-clock"></i> 24h response</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 RealTech Labs</p>
+    </div>
+
   </div>
 </footer>
 
-<!-- ===== FORM SUBMISSION FEEDBACK (Formspree-safe) ===== -->
+<div id="cookie-banner" class="cookie-banner">
+  <p>
+    By continuing, you agree to our
+    <a href="privacy.html">Privacy Policy</a> and
+    <a href="terms.html">Terms of Service</a>.
+  </p>
+  <button onclick="acceptCookies()">Accept</button>
+</div>
+
 <script>
-  const form = document.querySelector('.contact-form');
-  const successMessage = document.createElement('div');
-  successMessage.className = 'form-success';
-  successMessage.innerHTML =
-    '<i class="fas fa-check-circle"></i> <strong>Message sent successfully.</strong> We will respond within 24 hours.';
-  form.appendChild(successMessage);
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitBtn.disabled = true;
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        form.reset();
-        successMessage.style.display = 'block';
-        setTimeout(() => {
-          successMessage.style.display = 'none';
-        }, 5000);
-      } else {
-        alert('There was an error. Please try again or email us directly.');
-      }
-    } catch (error) {
-      alert('Network error. Please check your connection.');
-    } finally {
-      submitBtn.innerHTML = originalText;
-      submitBtn.disabled = false;
-    }
-  });
+  function acceptCookies() {
+    localStorage.setItem("cookiesAccepted", "true");
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+  if (localStorage.getItem("cookiesAccepted")) {
+    document.getElementById("cookie-banner").style.display = "none";
+  }
 </script>
+
+<style>
+  .pricing-info-box {
+    background: linear-gradient(135deg, #f0f9ff 0%, #ecfdf5 100%);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #2563eb;
+    margin-bottom: 2rem;
+  }
+
+  .pricing-info-box p {
+    margin-bottom: 0.75rem;
+  }
+
+  .pricing-desc {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .pricing-card ul li {
+    padding-left: 1.75rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+  }
+
+  .payment-terms ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .payment-terms ul li {
+    padding-left: 1.75rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .payment-terms ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+  }
+</style>
 
 </body>
 </html>
