@@ -4,19 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services | RealTech Labs</title>
-
   <meta name="description" content="Explore RealTech Labs services: software development, automation, AI solutions, transcription, moderation, and freelancing guidance." />
-
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <div class="container">
-    <a href="/" class="logo" aria-label="RealTech Labs Home">
-  RealTech Labs
-</a>
+    <a href="/" class="logo" aria-label="RealTech Labs Home">RealTech Labs</a>
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html" class="active">Services</a>
@@ -27,55 +23,86 @@
   </div>
 </header>
 
-<!-- PAGE HEADER -->
 <section class="page">
   <div class="container">
     <h2>Our Services</h2>
     <p class="subtitle">
-      Professional, reliable, and scalable digital solutions tailored to your needs.
+      Professional, reliable, and scalable digital solutions tailored to your needs. 
+      All services include consultation, multiple rounds of revision, and ongoing support.
     </p>
 
-    <!-- SOFTWARE -->
-    <div class="service-block">
+    <!-- SERVICE 1: SOFTWARE -->
+    <div class="service-block" id="software">
       <img
         src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80"
         alt="Software developers working on code"
       >
       <h3>Software Development & Automation</h3>
       <p>
-        We design and build custom software solutions that improve efficiency,
-        automate workflows, and support long-term growth.
+        Custom-built software solutions designed to improve efficiency, automate workflows, 
+        and support sustainable growth.
       </p>
+      
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">What's Included:</h4>
+      <ul>
+        <li>Initial consultation to understand requirements</li>
+        <li>Technical architecture & solution design</li>
+        <li>Full development with version control</li>
+        <li>Testing & quality assurance</li>
+        <li>Multiple revision rounds</li>
+        <li>Deployment & documentation</li>
+        <li>30-day post-launch support</li>
+      </ul>
+
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">Examples:</h4>
       <ul>
         <li>Custom software & internal tools</li>
         <li>Automation scripts & bots</li>
         <li>API development & integrations</li>
+        <li>E-commerce solutions</li>
+        <li>Data processing systems</li>
         <li>Scalable, secure architecture</li>
       </ul>
+
       <a href="pricing.html" class="btn primary">View Pricing</a>
     </div>
 
-    <!-- AI -->
-    <div class="service-block">
+    <!-- SERVICE 2: AI -->
+    <div class="service-block" id="ai">
       <img
         src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
         alt="Team working on artificial intelligence solutions"
       >
       <h3>AI Solutions & Training</h3>
       <p>
-        Practical AI services that help individuals and businesses leverage
-        modern artificial intelligence effectively.
+        Practical AI services that help individuals and businesses leverage modern 
+        artificial intelligence effectively. We focus on real-world applications, not hype.
       </p>
+
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">What's Included:</h4>
       <ul>
-        <li>AI chatbots & assistants</li>
+        <li>AI needs assessment & strategy</li>
+        <li>Model selection & integration</li>
+        <li>Custom training (hands-on)</li>
+        <li>Testing & optimization</li>
+        <li>Documentation & best practices</li>
+        <li>Ongoing support & guidance</li>
+      </ul>
+
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">Examples:</h4>
+      <ul>
+        <li>AI chatbots & intelligent assistants</li>
         <li>Workflow automation using AI</li>
         <li>AI system integration</li>
-        <li>Hands-on AI training & guidance</li>
+        <li>Content generation & summarization</li>
+        <li>Data analysis with AI</li>
+        <li>Hands-on AI training & mentorship</li>
       </ul>
+
       <a href="pricing.html" class="btn primary">Book Consultation</a>
     </div>
 
-    <!-- TRANSCRIPTION (UPDATED ONLY) -->
+    <!-- SERVICE 3: TRANSCRIPTION -->
     <div class="service-block" id="transcription">
       <img
         src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80"
@@ -85,49 +112,94 @@
       <h3>Transcription, Captioning & Subtitling</h3>
 
       <p>
-        Enterprise-ready transcription solutions delivered with accuracy,
-        confidentiality, and flexible workflows.
+        Enterprise-ready transcription solutions delivered with accuracy, confidentiality, 
+        and flexible workflows designed for your specific needs.
       </p>
 
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">Service Options:</h4>
+
+      <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+        <h5 style="color: #2563eb;">100% Human Transcription</h5>
+        <p><strong>Accuracy:</strong> 99%+ verbatim or clean-read format</p>
+        <p><strong>Timeline:</strong> 3-7 days per hour of audio</p>
+        <p><strong>Best for:</strong> Medical, legal, research, interviews, sensitive content</p>
+      </div>
+
+      <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+        <h5 style="color: #2563eb;">Human + AI Hybrid</h5>
+        <p><strong>Accuracy:</strong> 98%+ with human review</p>
+        <p><strong>Timeline:</strong> 1-3 days per hour of audio</p>
+        <p><strong>Best for:</strong> Balance of speed and accuracy</p>
+      </div>
+
+      <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+        <h5 style="color: #2563eb;">AI Transcription</h5>
+        <p><strong>Accuracy:</strong> 90-95% (depends on audio quality)</p>
+        <p><strong>Timeline:</strong> 24 hours per hour of audio</p>
+        <p><strong>Best for:</strong> Cost-effective, quick turnaround, general content</p>
+      </div>
+
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">Includes:</h4>
       <ul>
-        <li><strong>100% Human Transcription</strong> (verbatim & clean-read)</li>
-        <li><strong>Human + AI Hybrid</strong> (speed + human review)</li>
-        <li><strong>AI Transcription</strong> (cost-effective, fast turnaround)</li>
-        <li><strong>Enterprise-level workflows</strong></li>
+        <li>Audio quality assessment</li>
+        <li>Format selection (verbatim or clean)</li>
+        <li>Speaker identification</li>
+        <li>Timestamp formatting</li>
+        <li>Unlimited revisions</li>
+        <li>Confidential handling (NDA available)</li>
       </ul>
 
-      <p><strong>Use cases:</strong></p>
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">Use Cases:</h4>
       <ul>
         <li>Marketing & research interviews</li>
         <li>Academic & educational content</li>
-        <li>Audio & video transcription</li>
+        <li>Podcasts & audio content</li>
+        <li>Video transcription & subtitles</li>
         <li>Medical & technical transcription</li>
+        <li>Legal & compliance documentation</li>
       </ul>
 
-      <a href="/pricing" class="btn primary">View Pricing</a>
+      <a href="pricing.html" class="btn primary">View Pricing</a>
     </div>
 
-    <!-- MODERATION -->
-    <div class="service-block">
+    <!-- SERVICE 4: MODERATION -->
+    <div class="service-block" id="moderation">
       <img
         src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80"
         alt="Content moderation team working online"
       >
       <h3>Chat & Content Moderation</h3>
       <p>
-        Reliable moderation services to maintain safe, respectful,
-        and productive online environments.
+        Reliable moderation services to maintain safe, respectful, and productive 
+        online environments for your community.
       </p>
+
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">What's Included:</h4>
       <ul>
+        <li>Rule definition & community guidelines</li>
         <li>Live & asynchronous moderation</li>
         <li>Community rule enforcement</li>
-        <li>Professional reporting</li>
-        <li>Consistent content review</li>
+        <li>Professional handling of disputes</li>
+        <li>Detailed reporting & analytics</li>
+        <li>Escalation procedures</li>
+        <li>Regular performance reviews</li>
       </ul>
+
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">Services Offered:</h4>
+      <ul>
+        <li>Real-time chat moderation</li>
+        <li>Comment & forum moderation</li>
+        <li>Content review & flagging</li>
+        <li>User support & guidance</li>
+        <li>Community culture maintenance</li>
+        <li>Ban/suspension management</li>
+        <li>Performance reporting</li>
+      </ul>
+
       <a href="contact.html" class="btn primary">Get Started</a>
     </div>
 
-    <!-- FREELANCING -->
+    <!-- SERVICE 5: FREELANCING GUIDANCE -->
     <div class="service-block">
       <img
         src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80"
@@ -135,27 +207,167 @@
       >
       <h3>Freelancing Guidance & Mentorship</h3>
       <p>
-        Affordable one-on-one guidance for individuals looking to start or
-        improve their freelancing careers.
+        One-on-one mentorship for individuals looking to start or improve their 
+        freelancing careers with practical, actionable guidance.
       </p>
+
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">Session Includes:</h4>
       <ul>
-        <li>Platform setup & optimization</li>
-        <li>Profile & proposal reviews</li>
-        <li>Career and pricing guidance</li>
-        <li>Practical, actionable advice</li>
+        <li>Career assessment & goal setting</li>
+        <li>Platform selection & setup guidance</li>
+        <li>Profile optimization & copywriting</li>
+        <li>Proposal writing & pitch improvement</li>
+        <li>Pricing strategy consultation</li>
+        <li>Client acquisition tactics</li>
+        <li>Time management & scaling tips</li>
       </ul>
+
+      <h4 style="margin-top: 1.5rem; color: #2563eb;">Topics Covered:</h4>
+      <ul>
+        <li>Which platform is best for your skills</li>
+        <li>How to write a winning profile</li>
+        <li>Proposal templates & best practices</li>
+        <li>Pricing your services competitively</li>
+        <li>Building long-term client relationships</li>
+        <li>Scaling from part-time to full-time</li>
+        <li>Avoiding common freelancer mistakes</li>
+      </ul>
+
       <a href="pricing.html" class="btn primary">Book Session</a>
     </div>
 
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    <p>© 2025 RealTech Labs. All rights reserved.</p>
+
+    <div class="footer-links">
+      <h4>RealTech Labs</h4>
+      <p>Professional software, AI, and digital solutions.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Services</h4>
+      <a href="#software">Software & Automation</a>
+      <a href="#ai">AI Solutions</a>
+      <a href="#transcription">Transcription</a>
+      <a href="#moderation">Moderation</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Support</h4>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:realltechlabs@gmail.com">realltechlabs@gmail.com</a></p>
+      <p><i class="fas fa-globe"></i> Remote - Global</p>
+      <p><i class="fas fa-clock"></i> 24h response</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 RealTech Labs</p>
+    </div>
+
   </div>
 </footer>
+
+<div id="cookie-banner" class="cookie-banner">
+  <p>
+    By continuing, you agree to our
+    <a href="privacy.html">Privacy Policy</a> and
+    <a href="terms.html">Terms of Service</a>.
+  </p>
+  <button onclick="acceptCookies()">Accept</button>
+</div>
+
+<script>
+  function acceptCookies() {
+    localStorage.setItem("cookiesAccepted", "true");
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+  if (localStorage.getItem("cookiesAccepted")) {
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+</script>
+
+<style>
+  .service-block {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .service-block:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
+  .service-block img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .service-block > h3,
+  .service-block > p,
+  .service-block > h4,
+  .service-block > ul,
+  .service-block > div,
+  .service-block > a {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .service-block > h3 {
+    margin-top: 2rem;
+  }
+
+  .service-block > a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-block h4 {
+    font-size: 1.125rem;
+  }
+
+  .service-block h5 {
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .service-block ul li {
+    padding-left: 1.75rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+    color: #64748b;
+  }
+
+  .service-block ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+</style>
 
 </body>
 </html>
