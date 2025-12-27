@@ -4,15 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>RealTech Labs | Software, AI & Digital Services</title>
+
   <meta name="description" content="RealTech Labs delivers professional software development, AI solutions, automation, transcription, moderation, and digital services." />
+
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico">
+
+  <!-- ORGANIZATION SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "RealTech Labs",
+    "url": "https://realtech-labs.vercel.app/",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "realltechlabs@gmail.com",
+      "contactType": "customer support"
+    }
+  }
+  </script>
 </head>
+
 <body>
 
-<header class="navbar">
+<header class="navbar" role="banner">
   <div class="container">
     <h1 class="logo">RealTech Labs</h1>
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html" class="active">Home</a>
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
@@ -22,12 +41,14 @@
   </div>
 </header>
 
+<main id="content">
+
 <section class="hero hero-image">
   <div class="container hero-content">
     <h2>Professional Software & AI Solutions</h2>
     <p>
-      We build reliable software, intelligent automation, and AI-powered services
-      trusted by individuals and growing businesses worldwide.
+      We build production-ready software, intelligent automation, and AI-powered
+      services trusted by individuals and growing businesses worldwide.
     </p>
     <a href="services.html" class="btn primary">Our Services</a>
     <a href="contact.html" class="btn secondary">Request a Quote</a>
@@ -36,76 +57,56 @@
 
 <section class="features">
   <div class="container grid">
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80">
+      <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80" alt="Software development">
       <h3>Software & Automation</h3>
       <p>Custom software, APIs, bots, and automation systems.</p>
     </div>
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Artificial intelligence solutions">
       <h3>AI Solutions</h3>
       <p>Chatbots, AI workflows, and intelligent integrations.</p>
     </div>
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=1200&q=80">
+      <img src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=1200&q=80" alt="Digital services">
       <h3>Digital Services</h3>
       <p>Transcription, captioning, moderation, and content review.</p>
     </div>
+
   </div>
 </section>
 
 <section class="work-section">
   <div class="container">
-    <section class="work-section">
-  <div class="container">
     <h2>How We Work</h2>
     <p class="subtitle">
-      Our process is transparent, efficient, and designed to deliver measurable results. 
-      Every step ensures quality, professionalism, and clear communication with our clients.
+      A transparent, efficient process focused on quality and measurable results.
     </p>
 
     <div class="grid">
-      
       <div class="card step-card">
-        <h3>1. Discovery & Requirements</h3>
-        <p>
-          We begin by understanding your goals, technical needs, and workflow.  
-          This includes business context, target audience, and any AI or automation requirements.
-        </p>
+        <h3>1. Discovery</h3>
+        <p>We understand your goals, requirements, and constraints.</p>
       </div>
-
       <div class="card step-card">
-        <h3>2. Planning & Strategy</h3>
-        <p>
-          We define clear project scope, choose the right technologies, and set realistic timelines.  
-          Every step is documented, ensuring transparency and alignment with your expectations.
-        </p>
+        <h3>2. Planning</h3>
+        <p>Clear scope, timelines, and technology decisions.</p>
       </div>
-
       <div class="card step-card">
-        <h3>3. Design & Development</h3>
-        <p>
-          Our team builds your software, bots, AI solutions, or digital services with a quality-first approach.  
-          Testing, validation, and iterative improvements ensure functionality and reliability.
-        </p>
+        <h3>3. Development</h3>
+        <p>Quality-first implementation with testing and iteration.</p>
       </div>
-
       <div class="card step-card">
-        <h3>4. Deployment & Delivery</h3>
-        <p>
-          We deploy clean, production-ready solutions with proper documentation.  
-          You receive guidance on usage, and we offer ongoing support or optional training.
-        </p>
+        <h3>4. Delivery</h3>
+        <p>Production-ready deployment and documentation.</p>
       </div>
-
       <div class="card step-card">
-        <h3>5. Review & Continuous Improvement</h3>
-        <p>
-          After delivery, we gather feedback, monitor performance, and provide actionable insights.  
-          This ensures your systems evolve effectively with your business needs.
-        </p>
+        <h3>5. Improvement</h3>
+        <p>Feedback, optimization, and long-term support.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -121,18 +122,24 @@
         <li>✔ Global remote services</li>
       </ul>
     </div>
-    <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1200&q=80">
+    <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1200&q=80" alt="Technology infrastructure">
   </div>
 </section>
 
-<footer class="footer">
+</main>
+
+<footer class="footer" role="contentinfo">
   <div class="container">
     <p>© 2025 RealTech Labs. All rights reserved.</p>
+    <nav>
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a>
+    </nav>
   </div>
 </footer>
 
 <!-- COOKIE CONSENT -->
-<div id="cookie-banner" class="cookie-banner">
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
   <p>
     By continuing, you agree to our
     <a href="privacy.html">Privacy Policy</a> and
