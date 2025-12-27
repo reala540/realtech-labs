@@ -4,32 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact | RealTech Labs</title>
+
   <meta name="description" content="Contact RealTech Labs for software development, AI solutions, transcription, moderation, and digital services." />
+
+  <!-- MAIN CSS -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- FONT AWESOME (required for form feedback icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-papNM8E9JteLoI0lp4rWuIwoMvVJE9idh+NROm4tW7x1YgnPZXoqBYwygJyI072QtdgQXl3k5ufADG7n2AFD2A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
 <body>
 
+<!-- NAVBAR -->
 <header class="navbar">
   <div class="container">
-    <h1 class="logo">RealTech Labs</h1>
+    <!-- CLICKABLE LOGO (HOME BUTTON) -->
+    <a href="index.html" class="logo" aria-label="RealTech Labs Home">
+      RealTech Labs
+    </a>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
       <a href="about.html">About</a>
-      <a href="contact.html" class="btn">Contact</a>
+      <a href="contact.html" class="btn primary">Contact</a>
     </nav>
   </div>
 </header>
 
+<!-- PAGE CONTENT -->
 <section class="page">
   <div class="container">
     <h2>Contact RealTech Labs</h2>
     <p>
-      Have a project, service request, or question?  
+      Have a project, service request, or question?<br>
       Fill out the form below and we’ll respond professionally and promptly.
     </p>
 
+    <!-- CONTACT FORM -->
     <form 
       action="https://formspree.io/f/mzdpqgzv" 
       method="POST"
@@ -63,7 +82,7 @@
         <textarea name="message" rows="6" required></textarea>
       </label>
 
-      <!-- Anti-spam -->
+      <!-- Anti-spam honeypot -->
       <input type="text" name="_gotcha" style="display:none">
 
       <button type="submit" class="btn primary">
@@ -72,6 +91,7 @@
 
     </form>
 
+    <!-- CONTACT DETAILS -->
     <div class="contact-info">
       <p><strong>Email:</strong> realltechlabs@gmail.com</p>
       <p><strong>Availability:</strong> Remote · Global</p>
@@ -79,11 +99,55 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <p>© 2025 RealTech Labs. All rights reserved.</p>
   </div>
 </footer>
+
+<!-- ===== FORM SUBMISSION FEEDBACK (Formspree-safe) ===== -->
+<script>
+  const form = document.querySelector('.contact-form');
+  const successMessage = document.createElement('div');
+  successMessage.className = 'form-success';
+  successMessage.innerHTML =
+    '<i class="fas fa-check-circle"></i> <strong>Message sent successfully.</strong> We will respond within 24 hours.';
+  form.appendChild(successMessage);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      } else {
+        alert('There was an error. Please try again or email us directly.');
+      }
+    } catch (error) {
+      alert('Network error. Please check your connection.');
+    } finally {
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+</script>
 
 </body>
 </html>
