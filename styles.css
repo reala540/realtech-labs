@@ -337,6 +337,23 @@ section {
     object-fit: contain;
 }
 
+/* ===== TRUST BAR (NEW) ===== */
+.trust-bar {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.trust-bar span {
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+}
+
 /* ===== FORM ENHANCEMENTS ===== */
 .contact-form label {
     display: block;
