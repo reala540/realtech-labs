@@ -4,59 +4,275 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | RealTech Labs</title>
+  <meta name="description" content="Learn about RealTech Labs team, mission, and commitment to delivering professional digital solutions worldwide." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <header class="navbar">
   <div class="container">
-    <a href="/" class="logo" aria-label="RealTech Labs Home">
-  RealTech Labs
-</a>
+    <a href="/" class="logo" aria-label="RealTech Labs Home">RealTech Labs</a>
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="contact.html" class="btn">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- UPDATED CONTENT SECTION (REPLACED ONLY) -->
 <section class="page">
   <div class="container">
     <h2>About RealTech Labs</h2>
 
     <p>
-      <strong>Founded in 2025</strong>, RealTech Labs is a remote-first
-      digital services studio delivering reliable software, AI,
-      and transcription solutions to clients worldwide.
+      <strong>Founded in 2025</strong>, RealTech Labs is a remote-first digital services studio delivering reliable software, AI, and transcription solutions to individuals and growing businesses worldwide.
     </p>
 
+    <h3 style="margin-top: 2rem;">Our Mission</h3>
     <p>
-      We operate fully remote, allowing us to work globally while
-      maintaining secure, professional, and NDA-friendly workflows.
+      We believe advanced technology should be practical, accessible, and trustworthy. Our mission is to help clients solve real problems with quality solutions—no hype, no unnecessary complexity, just results.
     </p>
 
+    <h3>How We Work</h3>
+    <ul>
+      <li><strong>Remote-First:</strong> We operate fully remote, allowing us to work globally while maintaining secure, professional workflows</li>
+      <li><strong>Direct Access:</strong> You work directly with our team—no outsourcing, no middlemen</li>
+      <li><strong>Transparent:</strong> Clear communication, honest scope discussions, and written agreements</li>
+      <li><strong>Secure:</strong> Enterprise-grade security and strict confidentiality on all projects</li>
+      <li><strong>Accountable:</strong> We stand behind our work with professional standards and support</li>
+    </ul>
+
+    <h3>Who We Work With</h3>
     <p>
-      <strong>Who we work with:</strong><br>
-      Startups, content creators, researchers, agencies, and growing
-      businesses that value accuracy, transparency, and long-term reliability.
+      Startups, content creators, researchers, freelancers, agencies, and growing businesses that value accuracy, transparency, and long-term reliability.
     </p>
 
-    <p>
-      Our mission is to make advanced technology practical,
-      accessible, and trustworthy — without unnecessary complexity.
+    <!-- TEAM SECTION (NEW) -->
+    <h2 style="margin-top: 3rem; margin-bottom: 1rem;">Our Team</h2>
+    <p class="subtitle" style="margin-bottom: 2rem;">
+      Experienced professionals dedicated to delivering quality results.
     </p>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <h3>Software Engineering & Automation</h3>
+        <p><strong>Expertise:</strong></p>
+        <ul style="text-align: left; color: var(--color-text-light); padding-left: 1.5rem;">
+          <li>Custom software development</li>
+          <li>API design & integration</li>
+          <li>Automation & workflow scripts</li>
+          <li>Database architecture</li>
+          <li>Scalable system design</li>
+        </ul>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-light);">
+          Building robust, production-ready systems that solve real business problems.
+        </p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>AI Solutions & Training</h3>
+        <p><strong>Expertise:</strong></p>
+        <ul style="text-align: left; color: var(--color-text-light); padding-left: 1.5rem;">
+          <li>AI model integration</li>
+          <li>Chatbot development</li>
+          <li>Workflow automation with AI</li>
+          <li>Hands-on training & guidance</li>
+          <li>Practical AI applications</li>
+        </ul>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-light);">
+          Making AI accessible and practical for your business needs.
+        </p>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <i class="fas fa-headphones"></i>
+        </div>
+        <h3>Digital Services & Support</h3>
+        <p><strong>Expertise:</strong></p>
+        <ul style="text-align: left; color: var(--color-text-light); padding-left: 1.5rem;">
+          <li>Human transcription (100% accuracy)</li>
+          <li>AI-assisted transcription</li>
+          <li>Content moderation</li>
+          <li>Captioning & subtitling</li>
+          <li>Quality assurance</li>
+        </ul>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--color-text-light);">
+          Enterprise-level digital services with meticulous attention to detail.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- VALUES SECTION (NEW) -->
+    <h2 style="margin-top: 3rem; margin-bottom: 1rem;">Our Values</h2>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h4>Quality First</h4>
+        <p>We prioritize quality over speed. Every project receives meticulous attention to detail.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h4>Security & Privacy</h4>
+        <p>Your data is sacred. We use enterprise-grade encryption and maintain strict confidentiality.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h4>Honesty & Transparency</h4>
+        <p>No hidden fees, no surprises. Clear communication and honest scope discussions always.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h4>Continuous Improvement</h4>
+        <p>We stay current with technology trends and continuously improve our services.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h4>Client Partnership</h4>
+        <p>We treat your project as our own and remain available for support long after delivery.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h4>Global Access</h4>
+        <p>Remote-first operations mean we're available globally with fast response times.</p>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
-    <p>© 2025 RealTech Labs. All rights reserved.</p>
+
+    <div class="footer-links">
+      <h4>RealTech Labs</h4>
+      <p>Professional software, AI, and digital solutions built for reliability and impact.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Services</h4>
+      <a href="services.html#software">Software & Automation</a>
+      <a href="services.html#ai">AI Solutions</a>
+      <a href="services.html#transcription">Transcription</a>
+      <a href="pricing.html">Pricing</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Support</h4>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:realltechlabs@gmail.com">realltechlabs@gmail.com</a></p>
+      <p><i class="fas fa-globe"></i> Remote - Global Service</p>
+      <p><i class="fas fa-clock"></i> 24-hour response time</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 RealTech Labs. All rights reserved.</p>
+    </div>
+
   </div>
 </footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite">
+  <p>
+    By continuing, you agree to our
+    <a href="privacy.html">Privacy Policy</a> and
+    <a href="terms.html">Terms of Service</a>.
+  </p>
+  <button onclick="acceptCookies()">Accept</button>
+</div>
+
+<script>
+  function acceptCookies() {
+    localStorage.setItem("cookiesAccepted", "true");
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+  if (localStorage.getItem("cookiesAccepted")) {
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+</script>
+
+<style>
+  .team-card, .value-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    border-top: 3px solid #2563eb;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .team-card:hover, .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
+  .team-card h3, .value-card h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, #2563eb, #10b981);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+  }
+
+  .value-icon {
+    font-size: 2.5rem;
+    color: #2563eb;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-card ul li {
+    margin-bottom: 0.5rem;
+  }
+</style>
 
 </body>
 </html>
