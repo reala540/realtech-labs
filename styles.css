@@ -467,4 +467,33 @@ section {
         grid-template-columns: 1fr;
         text-align: center;
     }
+
+/* ===== CONTACT FORM SUCCESS FEEDBACK (NON-BREAKING) ===== */
+.form-success {
+  display: none;
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background-color: #ecfdf5;
+  color: #065f46;
+  font-weight: 500;
+  border: 1px solid #10b981;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeInSuccess 0.3s ease-in-out;
+}
+
+.form-success i {
+  margin-right: 0.5rem;
+  color: #10b981;
+}
+
+@keyframes fadeInSuccess {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
