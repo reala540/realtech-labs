@@ -364,3 +364,53 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+/* =========================
+   SYSTEM DARK MODE (SUBTLE)
+   ========================= */
+
+@media (prefers-color-scheme: dark) {
+
+  body {
+    background: #0b1220;
+    color: #e5e7eb;
+  }
+
+  .navbar,
+  .footer {
+    background: #020617;
+  }
+
+  .card,
+  .pricing-card {
+    background: #020617;
+    border-color: #1e293b;
+  }
+
+  .card p,
+  .pricing-card ul li,
+  .service-block p {
+    color: #cbd5e1;
+  }
+
+  .trust-section {
+    background: #020617;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select {
+    background: #020617;
+    color: #e5e7eb;
+    border-color: #1e293b;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: #94a3b8;
+  }
+
+  .cookie-banner {
+    background: #020617;
+  }
+}
