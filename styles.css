@@ -59,17 +59,20 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
 
   /* Z-Index */
   --z-sticky: 1000;
   --z-modal: 1100;
   --z-tooltip: 1200;
+  --z-chatbot: 1300;
 
   /* Transitions */
   --transition-fast: 150ms ease-out;
@@ -385,6 +388,8 @@ section {
   background-color: var(--color-primary-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+  color: white;
+  text-decoration: none;
 }
 
 .btn-primary:active {
@@ -407,6 +412,7 @@ section {
   background-color: var(--color-primary);
   color: white;
   transform: translateY(-2px);
+  text-decoration: none;
 }
 
 .btn-secondary:active {
@@ -464,8 +470,6 @@ section {
    8. HERO SECTION
    ============================================================================ */
 .hero {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)),
-              linear-gradient(to bottom, rgba(37, 99, 235, 0.1), transparent);
   color: white;
   padding: var(--space-3xl) var(--space-md);
   min-height: 90vh;
@@ -475,6 +479,35 @@ section {
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(37, 99, 235, 0.7));
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content {
@@ -492,7 +525,7 @@ section {
 
 .hero-subtitle {
   font-size: var(--font-size-lg);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--space-xl);
   line-height: var(--line-height-relaxed);
 }
@@ -511,23 +544,25 @@ section {
   gap: var(--space-md);
   flex-wrap: wrap;
   font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .trust-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-full);
   transition: all var(--transition-fast);
   white-space: nowrap;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .trust-badge:hover {
   border-color: rgba(255, 255, 255, 0.6);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .icon-sm {
@@ -610,19 +645,41 @@ section {
   text-decoration: underline;
 }
 
-/* Service Cards */
+/* Service Cards with Images */
 .service-card {
   background: var(--color-bg);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border);
   transition: all var(--transition-base);
+  overflow: hidden;
 }
 
 .service-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-xl);
   border-color: var(--color-primary);
+  transform: translateY(-6px);
+}
+
+.service-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.service-card:hover .service-card-image img {
+  transform: scale(1.05);
+}
+
+.service-card-content {
+  padding: var(--space-lg);
 }
 
 /* ============================================================================
@@ -651,6 +708,12 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .image-placeholder {
@@ -858,6 +921,25 @@ section {
 /* ============================================================================
    13. TRUST SECTION
    ============================================================================ */
+.trust-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.trust-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.trust-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .trust-list {
   list-style: none;
   padding: 0;
@@ -887,53 +969,169 @@ section {
 }
 
 /* ============================================================================
-   14. TESTIMONIALS
+   14. TESTIMONIALS CAROUSEL
    ============================================================================ */
-.testimonial-card {
-  background: var(--color-bg);
-  padding: var(--space-lg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  border-top: 3px solid var(--color-primary);
-  transition: all var(--transition-base);
+.testimonials-carousel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  padding: var(--space-lg) 0;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-3px);
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.testimonial-slide {
+  flex: 0 0 100%;
+  padding: 0 var(--space-md);
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .testimonial-slide {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-slide {
+    flex: 0 0 33.333%;
+  }
+}
+
+.testimonial-card-carousel {
+  background: var(--color-bg);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.testimonial-card-carousel:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2xl);
+  border-color: var(--color-primary-light);
+}
+
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--space-md);
+  border: 4px solid var(--color-primary-light);
   box-shadow: var(--shadow-md);
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .star-rating {
   color: var(--color-warning);
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--space-sm);
-  letter-spacing: 2px;
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+  letter-spacing: 3px;
 }
 
 .testimonial-text {
   font-style: italic;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   color: var(--color-text);
   line-height: var(--line-height-relaxed);
+  font-size: var(--font-size-base);
 }
 
 .testimonial-author {
-  display: flex;
-  align-items: center;
   border-top: 1px solid var(--color-border);
-  padding-top: var(--space-sm);
+  padding-top: var(--space-md);
 }
 
 .testimonial-author strong {
   display: block;
-  color: var(--color-text);
+  color: var(--color-secondary);
+  font-size: var(--font-size-lg);
   margin-bottom: var(--space-xs);
 }
 
 .testimonial-author p {
   font-size: var(--font-size-sm);
-  color: var(--color-text-light);
+  color: var(--color-primary);
   margin-bottom: 0;
+  font-weight: 500;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.carousel-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.carousel-btn:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+.carousel-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-border-dark);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.carousel-dot.active {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background: var(--color-primary-light);
 }
 
 /* ============================================================================
@@ -1644,7 +1842,7 @@ section {
 }
 
 .cookie-content a {
-  color: var(--color-primary);
+  color: var(--color-primary-light);
   text-decoration: underline;
 }
 
@@ -1652,6 +1850,17 @@ section {
   from {
     opacity: 0;
     transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -1683,7 +1892,251 @@ section {
 }
 
 /* ============================================================================
-   27. RESPONSIVE DESIGN
+   27. CHATBOT WIDGET
+   ============================================================================ */
+.chatbot-widget {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  z-index: var(--z-chatbot);
+  font-family: var(--font-family);
+}
+
+.chatbot-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xl);
+  transition: all var(--transition-base);
+  color: white;
+}
+
+.chatbot-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 40px rgba(37, 99, 235, 0.4);
+}
+
+.chatbot-toggle svg {
+  width: 28px;
+  height: 28px;
+}
+
+.chatbot-icon-close {
+  display: none;
+}
+
+.chatbot-widget.open .chatbot-icon-open {
+  display: none;
+}
+
+.chatbot-widget.open .chatbot-icon-close {
+  display: block;
+}
+
+.chatbot-container {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 380px;
+  max-width: calc(100vw - 2rem);
+  height: 520px;
+  max-height: calc(100vh - 150px);
+  background: var(--color-bg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2xl);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.95);
+  transition: all var(--transition-base);
+}
+
+.chatbot-container[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.chatbot-header {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatbot-header-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.chatbot-avatar {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbot-avatar svg {
+  width: 24px;
+  height: 24px;
+}
+
+.chatbot-header h4 {
+  color: white;
+  margin-bottom: 2px;
+  font-size: var(--font-size-base);
+}
+
+.chatbot-status {
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--color-bg-alt);
+}
+
+.chatbot-message {
+  max-width: 85%;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  animation: slideInUp var(--transition-base) ease;
+}
+
+.chatbot-message p {
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.chatbot-message p:last-child {
+  margin-bottom: 0;
+}
+
+.bot-message {
+  background: var(--color-bg);
+  color: var(--color-text);
+  align-self: flex-start;
+  border-bottom-left-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.user-message {
+  background: var(--color-primary);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.user-message p {
+  color: white;
+}
+
+.chatbot-form {
+  padding: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.chatbot-input-wrapper {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.chatbot-input {
+  flex: 1;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.chatbot-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.chatbot-send {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+}
+
+.chatbot-send:hover {
+  background: var(--color-primary-dark);
+  transform: scale(1.05);
+}
+
+.chatbot-send:disabled {
+  background: var(--color-text-lighter);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.chatbot-send svg {
+  width: 20px;
+  height: 20px;
+}
+
+.chatbot-quick-actions {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.quick-action {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.quick-action:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* ============================================================================
+   28. RESPONSIVE DESIGN
    ============================================================================ */
 @media (max-width: 768px) {
   :root {
@@ -1729,6 +2182,14 @@ section {
 
   .service-image {
     height: 300px;
+  }
+
+  .trust-content {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-image {
+    order: -1;
   }
 
   .grid,
@@ -1777,6 +2238,17 @@ section {
   .section {
     padding: var(--space-2xl) 0;
   }
+
+  .chatbot-widget {
+    bottom: var(--space-sm);
+    right: var(--space-sm);
+  }
+
+  .chatbot-container {
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 160px);
+    right: -8px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1822,7 +2294,7 @@ section {
   .pricing-card,
   .card,
   .service-card,
-  .testimonial-card,
+  .testimonial-card-carousel,
   .faq-item {
     padding: var(--space-md);
   }
@@ -1869,6 +2341,11 @@ section {
   .legal-content {
     padding: 0 var(--space-sm);
   }
+
+  .chatbot-toggle {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 /* Prefer Reduced Motion */
@@ -1905,7 +2382,8 @@ section {
 @media print {
   .navbar,
   .cookie-consent,
-  .cta-section {
+  .cta-section,
+  .chatbot-widget {
     display: none;
   }
 
