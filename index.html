@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Icons (lightweight alternative to FontAwesome) -->
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papNM8E9JteLoI0lp4rWuIwoMvVJE9idh+NROm4tW7x1YgnPZXoqBYwygJyI072QtdgQXl3k5ufADG7n2AFD2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
   
   <!-- Stylesheet -->
@@ -97,6 +97,10 @@
   <main id="main-content">
     <!-- Hero Section -->
     <section class="hero" aria-label="Hero section">
+      <div class="hero-background">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" alt="" aria-hidden="true" class="hero-bg-image">
+        <div class="hero-overlay"></div>
+      </div>
       <div class="container">
         <div class="hero-content">
           <h1>Professional Software, AI & Digital Solutions</h1>
@@ -150,36 +154,51 @@
         
         <div class="grid grid-3">
           <div class="service-card">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M2 17h20"/>
-              </svg>
+            <div class="service-card-image">
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Software Development" loading="lazy">
             </div>
-            <h3>Software & Automation</h3>
-            <p>Custom software, APIs, bots, and workflow automation systems designed for scale.</p>
-            <a href="services.html#software" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+            <div class="service-card-content">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M2 17h20"/>
+                </svg>
+              </div>
+              <h3>Software & Automation</h3>
+              <p>Custom software, APIs, bots, and workflow automation systems designed for scale.</p>
+              <a href="services.html#software" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+            </div>
           </div>
 
           <div class="service-card">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 2.2"/>
-              </svg>
+            <div class="service-card-image">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" alt="AI Solutions" loading="lazy">
             </div>
-            <h3>AI Solutions</h3>
-            <p>Intelligent chatbots, AI workflows, and practical model integration with hands-on guidance.</p>
-            <a href="services.html#ai" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+            <div class="service-card-content">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 2.2"/>
+                </svg>
+              </div>
+              <h3>AI Solutions</h3>
+              <p>Intelligent chatbots, AI workflows, and practical model integration with hands-on guidance.</p>
+              <a href="services.html#ai" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+            </div>
           </div>
 
           <div class="service-card">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36M20.49 15a9 9 0 0 1-14.85 3.36"/>
-              </svg>
+            <div class="service-card-image">
+              <img src="https://images.unsplash.com/photo-1590935217281-8f102120d683?auto=format&fit=crop&w=600&q=80" alt="Digital Services" loading="lazy">
             </div>
-            <h3>Digital Services</h3>
-            <p>Professional transcription, captioning, content moderation, and digital outsourcing.</p>
-            <a href="services.html#transcription" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+            <div class="service-card-content">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36M20.49 15a9 9 0 0 1-14.85 3.36"/>
+                </svg>
+              </div>
+              <h3>Digital Services</h3>
+              <p>Professional transcription, captioning, content moderation, and digital outsourcing.</p>
+              <a href="services.html#transcription" class="card-link">Learn more <span aria-hidden="true">→</span></a>
+            </div>
           </div>
         </div>
       </div>
@@ -355,55 +374,143 @@
               </li>
             </ul>
           </div>
+          <div class="trust-image">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Professional team collaboration" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Testimonials Carousel -->
     <section class="section testimonials" aria-labelledby="testimonials-heading">
       <div class="container">
         <h2 id="testimonials-heading" class="section-heading">Client Feedback</h2>
         <p class="section-subtitle">What clients value about working with us</p>
         
-        <div class="grid grid-3">
-          <article class="testimonial-card">
-            <div class="star-rating" aria-label="5 out of 5 stars">
-              <span aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "Professional approach from start to finish. They understood our requirements immediately and delivered exactly what we needed. Very reliable team."
-            </p>
-            <div class="testimonial-author">
-              <strong>Sarah M.</strong>
-              <p>Startup Founder</p>
-            </div>
-          </article>
+        <div class="testimonials-carousel" id="testimonials-carousel">
+          <div class="carousel-track">
+            <article class="testimonial-slide">
+              <div class="testimonial-card-carousel">
+                <div class="testimonial-avatar">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80" alt="Sarah M." loading="lazy">
+                </div>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <span aria-hidden="true">★★★★★</span>
+                </div>
+                <p class="testimonial-text">
+                  "Professional approach from start to finish. They understood our requirements immediately and delivered exactly what we needed. Very reliable team."
+                </p>
+                <div class="testimonial-author">
+                  <strong>Sarah M.</strong>
+                  <p>Startup Founder</p>
+                </div>
+              </div>
+            </article>
 
-          <article class="testimonial-card">
-            <div class="star-rating" aria-label="5 out of 5 stars">
-              <span aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "Working with RealTech Labs for transcription services for 6 months. Exceptional accuracy, always meet deadlines, and professional handling of sensitive content."
-            </p>
-            <div class="testimonial-author">
-              <strong>Marcus L.</strong>
-              <p>Content Creator</p>
-            </div>
-          </article>
+            <article class="testimonial-slide">
+              <div class="testimonial-card-carousel">
+                <div class="testimonial-avatar">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Marcus L." loading="lazy">
+                </div>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <span aria-hidden="true">★★★★★</span>
+                </div>
+                <p class="testimonial-text">
+                  "Working with RealTech Labs for transcription services for 6 months. Exceptional accuracy, always meet deadlines, and professional handling of sensitive content."
+                </p>
+                <div class="testimonial-author">
+                  <strong>Marcus L.</strong>
+                  <p>Content Creator</p>
+                </div>
+              </div>
+            </article>
 
-          <article class="testimonial-card">
-            <div class="star-rating" aria-label="5 out of 5 stars">
-              <span aria-hidden="true">★★★★★</span>
-            </div>
-            <p class="testimonial-text">
-              "Great communication throughout the project, secure data handling, and proactive problem-solving. They treat your project like their own business."
-            </p>
-            <div class="testimonial-author">
-              <strong>James R.</strong>
-              <p>Agency Director</p>
-            </div>
-          </article>
+            <article class="testimonial-slide">
+              <div class="testimonial-card-carousel">
+                <div class="testimonial-avatar">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80" alt="James R." loading="lazy">
+                </div>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <span aria-hidden="true">★★★★★</span>
+                </div>
+                <p class="testimonial-text">
+                  "Great communication throughout the project, secure data handling, and proactive problem-solving. They treat your project like their own business."
+                </p>
+                <div class="testimonial-author">
+                  <strong>James R.</strong>
+                  <p>Agency Director</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide">
+              <div class="testimonial-card-carousel">
+                <div class="testimonial-avatar">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&h=150&q=80" alt="Emily T." loading="lazy">
+                </div>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <span aria-hidden="true">★★★★★</span>
+                </div>
+                <p class="testimonial-text">
+                  "The AI chatbot they built for us reduced our support tickets by 60%. Implementation was smooth and the team provided excellent training."
+                </p>
+                <div class="testimonial-author">
+                  <strong>Emily T.</strong>
+                  <p>Operations Manager</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide">
+              <div class="testimonial-card-carousel">
+                <div class="testimonial-avatar">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80" alt="David K." loading="lazy">
+                </div>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <span aria-hidden="true">★★★★★</span>
+                </div>
+                <p class="testimonial-text">
+                  "Their automation solution saved us 20+ hours per week. ROI was visible within the first month. Highly recommend for any business looking to scale."
+                </p>
+                <div class="testimonial-author">
+                  <strong>David K.</strong>
+                  <p>E-commerce Owner</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide">
+              <div class="testimonial-card-carousel">
+                <div class="testimonial-avatar">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&h=150&q=80" alt="Lisa M." loading="lazy">
+                </div>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <span aria-hidden="true">★★★★★</span>
+                </div>
+                <p class="testimonial-text">
+                  "The freelancing mentorship sessions were invaluable. Within 3 months, I tripled my client base and raised my rates confidently."
+                </p>
+                <div class="testimonial-author">
+                  <strong>Lisa M.</strong>
+                  <p>Freelance Writer</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev" aria-label="Previous testimonial" id="carousel-prev">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="carousel-dots" id="carousel-dots"></div>
+            <button class="carousel-btn carousel-next" aria-label="Next testimonial" id="carousel-next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -537,6 +644,68 @@
         <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.
       </p>
       <button id="cookie-accept" class="btn btn-sm btn-primary" aria-label="Accept cookies">Accept</button>
+    </div>
+  </div>
+
+  <!-- Chatbot Widget -->
+  <div id="chatbot-widget" class="chatbot-widget">
+    <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chat">
+      <svg class="chatbot-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+      <svg class="chatbot-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    
+    <div id="chatbot-container" class="chatbot-container" aria-hidden="true">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/>
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/>
+            </svg>
+          </div>
+          <div>
+            <h4>RealTech Labs</h4>
+            <span class="chatbot-status">Online • We reply within 24h</span>
+          </div>
+        </div>
+      </div>
+      
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="chatbot-message bot-message">
+          <p>👋 Hi there! How can we help you today?</p>
+          <p>Feel free to ask about our services, pricing, or start a project inquiry.</p>
+        </div>
+      </div>
+      
+      <form id="chatbot-form" class="chatbot-form">
+        <div class="chatbot-input-wrapper">
+          <input 
+            type="text" 
+            id="chatbot-input" 
+            class="chatbot-input" 
+            placeholder="Type your message..."
+            autocomplete="off"
+            required
+          >
+          <button type="submit" class="chatbot-send" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+        <div class="chatbot-quick-actions">
+          <button type="button" class="quick-action" data-message="I need a quote for a project">Get Quote</button>
+          <button type="button" class="quick-action" data-message="What services do you offer?">Services</button>
+          <button type="button" class="quick-action" data-message="I want to schedule a call">Schedule Call</button>
+        </div>
+      </form>
     </div>
   </div>
 
