@@ -1,0 +1,24 @@
+# RealTech Labs robots.txt
+# Generated for Vercel deployment
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+Disallow: /*.pdf$
+Disallow: /*.json$
+
+# Crawl delay (optional, adjust based on server capacity)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://realtech-labs.vercel.app/sitemap.xml
+
+# Allow specific crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
