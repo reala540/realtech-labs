@@ -11,17 +11,26 @@
 function initCookieConsent() {
   const consentBanner = document.getElementById('cookie-consent');
   const acceptBtn = document.getElementById('cookie-accept');
+
   if (!consentBanner || !acceptBtn) return;
+
   if (localStorage.getItem('realtech-cookies-accepted') === 'true') {
     consentBanner.setAttribute('aria-hidden', 'true');
     consentBanner.style.display = 'none';
   } else {
     consentBanner.setAttribute('aria-hidden', 'false');
   }
+
   acceptBtn.addEventListener('click', () => {
     localStorage.setItem('realtech-cookies-accepted', 'true');
     consentBanner.setAttribute('aria-hidden', 'true');
     consentBanner.style.display = 'none';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && consentBanner.getAttribute('aria-hidden') === 'false') {
+      acceptBtn.click();
+    }
   });
 }
 
@@ -35,52 +44,87 @@ class FormValidator {
     this.errors = new Map();
     this.init();
   }
+
   init() {
     this.fields.forEach((field) => {
       field.addEventListener('blur', () => this.validateField(field));
       field.addEventListener('input', () => this.clearFieldError(field));
     });
   }
+
   validateField(field) {
     const value = field.value.trim();
     let error = '';
+
     switch (field.type) {
       case 'text':
-        if (!value) error = 'This field is required';
-        else if (value.length < 2) error = 'Please enter at least 2 characters';
+        if (!value) {
+          error = 'This field is required';
+        } else if (value.length < 2) {
+          error = 'Please enter at least 2 characters';
+        } else if (value.length > 100) {
+          error = 'Please enter no more than 100 characters';
+        }
         break;
+
       case 'email':
-        if (!value) error = 'Email is required';
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = 'Please enter a valid email';
+        if (!value) {
+          error = 'Email is required';
+        } else if (!this.isValidEmail(value)) {
+          error = 'Please enter a valid email address';
+        }
         break;
+
       case 'textarea':
-        if (!value) error = 'This field is required';
-        else if (value.length < 10) error = 'Please provide more details';
+        if (!value) {
+          error = 'This field is required';
+        } else if (value.length < 10) {
+          error = 'Please provide more details (at least 10 characters)';
+        } else if (value.length > 5000) {
+          error = 'Message is too long (max 5000 characters)';
+        }
         break;
+
       case 'select-one':
-        if (!value) error = 'Please select an option';
+        if (!value) {
+          error = 'Please select an option';
+        }
         break;
     }
-    if (error) { this.setFieldError(field, error); return false; }
-    this.clearFieldError(field);
-    return true;
+
+    if (error) {
+      this.setFieldError(field, error);
+      return false;
+    } else {
+      this.clearFieldError(field);
+      return true;
+    }
   }
+
   validateForm() {
     let isValid = true;
+    this.errors.clear();
+
     this.fields.forEach((field) => {
       if (field.name === '_gotcha') return;
-      if (!this.validateField(field)) isValid = false;
+      if (!this.validateField(field)) {
+        isValid = false;
+      }
     });
+
     return isValid;
   }
+
   setFieldError(field, message) {
     const errorElement = field.parentElement.querySelector('.form-error');
     if (errorElement) {
       errorElement.textContent = message;
+      errorElement.setAttribute('role', 'alert');
       field.setAttribute('aria-invalid', 'true');
     }
     this.errors.set(field.name, message);
   }
+
   clearFieldError(field) {
     const errorElement = field.parentElement.querySelector('.form-error');
     if (errorElement) {
@@ -89,212 +133,420 @@ class FormValidator {
     }
     this.errors.delete(field.name);
   }
+
+  isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
 }
 
 // ============================================================================
-// 3. FORM SUBMISSION HANDLING
+// 3. CONTACT FORM SUBMISSION
 // ============================================================================
 function initFormHandling() {
   const form = document.getElementById('contact-form');
   if (!form) return;
+
   const validator = new FormValidator(form);
   const submitBtn = form.querySelector('button[type="submit"]');
   const successMessage = document.getElementById('form-success');
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     if (!validator.validateForm()) {
       const firstError = form.querySelector('[aria-invalid="true"]');
       if (firstError) firstError.focus();
       return;
     }
+
     if (submitBtn.disabled) return;
+
     submitBtn.disabled = true;
+    const originalText = submitBtn.innerHTML;
+
     try {
       const response = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' },
       });
+
       if (response.ok) {
         form.reset();
+        validator.fields.forEach((field) => validator.clearFieldError(field));
+
         if (successMessage) {
           successMessage.classList.add('visible');
+          successMessage.setAttribute('role', 'status');
           setTimeout(() => successMessage.classList.remove('visible'), 6000);
         }
+
+        successMessage?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
-        alert('Error submitting. Please email realltechlabs@gmail.com directly.');
+        alert('There was an error submitting your message. Please try again or email us directly at realltechlabs@gmail.com.');
       }
     } catch (error) {
-      alert('Network error. Please email realltechlabs@gmail.com directly.');
+      console.error('Form submission error:', error);
+      alert('Network error. Please check your connection or email us at realltechlabs@gmail.com.');
     } finally {
       submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
     }
   });
 }
 
 // ============================================================================
-// 4. TESTIMONIALS CAROUSEL
-// ============================================================================
-function initTestimonialsCarousel() {
-  const carousel = document.getElementById('testimonials-carousel');
-  if (!carousel) return;
-  const track = carousel.querySelector('.carousel-track');
-  const slides = carousel.querySelectorAll('.testimonial-slide');
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
-  const dotsContainer = document.getElementById('carousel-dots');
-  if (!track || slides.length === 0) return;
-  
-  let currentIndex = 0;
-  let slidesPerView = getSlidesPerView();
-  const totalSlides = slides.length;
-  
-  function getSlidesPerView() {
-    if (window.innerWidth >= 1024) return 3;
-    if (window.innerWidth >= 768) return 2;
-    return 1;
-  }
-  
-  function createDots() {
-    dotsContainer.innerHTML = '';
-    const totalDots = Math.ceil(totalSlides / slidesPerView);
-    for (let i = 0; i < totalDots; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-      dot.addEventListener('click', () => goToSlide(i * slidesPerView));
-      dotsContainer.appendChild(dot);
-    }
-  }
-  
-  function updateCarousel() {
-    const slideWidth = 100 / slidesPerView;
-    track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-    const dots = dotsContainer.querySelectorAll('.carousel-dot');
-    const activeDotIndex = Math.floor(currentIndex / slidesPerView);
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === activeDotIndex));
-  }
-  
-  function goToSlide(index) {
-    const maxIndex = totalSlides - slidesPerView;
-    currentIndex = Math.max(0, Math.min(index, maxIndex));
-    updateCarousel();
-  }
-  
-  function nextSlide() { goToSlide(currentIndex + 1); }
-  function prevSlide() { goToSlide(currentIndex - 1); }
-  
-  prevBtn?.addEventListener('click', prevSlide);
-  nextBtn?.addEventListener('click', nextSlide);
-  
-  let autoplayInterval = setInterval(nextSlide, 5000);
-  carousel.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-  carousel.addEventListener('mouseleave', () => { autoplayInterval = setInterval(nextSlide, 5000); });
-  
-  window.addEventListener('resize', () => {
-    slidesPerView = getSlidesPerView();
-    createDots();
-    goToSlide(0);
-  });
-  
-  createDots();
-  updateCarousel();
-}
-
-// ============================================================================
-// 5. CHATBOT WIDGET
+// 4. CHATBOT WIDGET
 // ============================================================================
 function initChatbot() {
   const widget = document.getElementById('chatbot-widget');
   const toggle = document.getElementById('chatbot-toggle');
-  const container = document.getElementById('chatbot-container');
+  const window = document.getElementById('chatbot-window');
   const form = document.getElementById('chatbot-form');
-  const input = document.getElementById('chatbot-input');
+  const success = document.getElementById('chatbot-success');
   const messages = document.getElementById('chatbot-messages');
-  const quickActions = document.querySelectorAll('.quick-action');
-  if (!widget || !toggle || !container) return;
-  
-  let isOpen = false;
-  let conversationHistory = [];
-  
-  function toggleChat() {
-    isOpen = !isOpen;
-    widget.classList.toggle('open', isOpen);
-    container.setAttribute('aria-hidden', !isOpen);
-    if (isOpen) input?.focus();
-  }
-  
-  function addMessage(text, isUser = false) {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = `chatbot-message ${isUser ? 'user-message' : 'bot-message'}`;
-    msgDiv.innerHTML = `<p>${text}</p>`;
-    messages.appendChild(msgDiv);
-    messages.scrollTop = messages.scrollHeight;
-    conversationHistory.push({ role: isUser ? 'user' : 'bot', text });
-  }
-  
-  function getBotResponse(userMessage) {
-    const msg = userMessage.toLowerCase();
-    if (msg.includes('quote') || msg.includes('price') || msg.includes('cost')) {
-      return "For a custom quote, please share your project details and I'll connect you with our team. You can also <a href='https://calendly.com/realltechlabs/free-consultation' target='_blank'>book a free consultation</a>.";
+
+  if (!widget || !toggle || !window) return;
+
+  // Toggle chatbot window
+  toggle.addEventListener('click', () => {
+    const isOpen = widget.classList.toggle('open');
+    window.setAttribute('aria-hidden', !isOpen);
+    
+    if (isOpen) {
+      const firstInput = form.querySelector('input');
+      if (firstInput) firstInput.focus();
     }
-    if (msg.includes('service')) {
-      return "We offer: Software Development, AI Solutions, Transcription & Captioning, Content Moderation, and Freelancing Mentorship. <a href='services.html'>View all services</a>";
-    }
-    if (msg.includes('call') || msg.includes('schedule') || msg.includes('meeting')) {
-      return "Great! <a href='https://calendly.com/realltechlabs/free-consultation' target='_blank'>Book your free 30-minute consultation here</a>.";
-    }
-    if (msg.includes('contact') || msg.includes('email')) {
-      return "Email us at <a href='mailto:realltechlabs@gmail.com'>realltechlabs@gmail.com</a>. We respond within 24 hours!";
-    }
-    return "Thanks for your message! For detailed inquiries, please <a href='contact.html'>fill out our contact form</a> or email <a href='mailto:realltechlabs@gmail.com'>realltechlabs@gmail.com</a>. We'll get back to you within 24 hours.";
-  }
-  
-  async function sendToFormspree(message) {
-    try {
-      await fetch('https://formspree.io/f/mzdpqgzv', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          message: message,
-          source: 'Chatbot Widget',
-          conversation: conversationHistory.map(m => `${m.role}: ${m.text}`).join('\n'),
-          timestamp: new Date().toISOString()
-        })
-      });
-    } catch (e) { console.log('Message logged locally'); }
-  }
-  
-  function handleSubmit(message) {
-    if (!message.trim()) return;
-    addMessage(message, true);
-    sendToFormspree(message);
-    setTimeout(() => addMessage(getBotResponse(message)), 800);
-  }
-  
-  toggle.addEventListener('click', toggleChat);
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    handleSubmit(input.value);
-    input.value = '';
   });
-  quickActions.forEach(btn => {
-    btn.addEventListener('click', () => handleSubmit(btn.dataset.message));
+
+  // Close on escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && widget.classList.contains('open')) {
+      widget.classList.remove('open');
+      window.setAttribute('aria-hidden', 'true');
+      toggle.focus();
+    }
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (widget.classList.contains('open') && 
+        !widget.contains(e.target)) {
+      widget.classList.remove('open');
+      window.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // Handle form submission
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nameInput = form.querySelector('#chatbot-name');
+      const emailInput = form.querySelector('#chatbot-email');
+      const messageInput = form.querySelector('#chatbot-message');
+
+      // Basic validation
+      if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+        return;
+      }
+
+      const submitBtn = form.querySelector('.chatbot-send');
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' },
+        });
+
+        if (response.ok) {
+          // Show success message
+          form.style.display = 'none';
+          messages.style.display = 'none';
+          success.style.display = 'block';
+
+          // Reset and show form again after 5 seconds
+          setTimeout(() => {
+            form.reset();
+            form.style.display = 'block';
+            messages.style.display = 'block';
+            success.style.display = 'none';
+            widget.classList.remove('open');
+            window.setAttribute('aria-hidden', 'true');
+          }, 5000);
+        } else {
+          alert('Failed to send message. Please try again.');
+        }
+      } catch (error) {
+        console.error('Chatbot form error:', error);
+        alert('Network error. Please try again or email us directly.');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+}
+
+// ============================================================================
+// 5. TESTIMONIALS CAROUSEL
+// ============================================================================
+function initTestimonialsCarousel() {
+  const carousel = document.getElementById('testimonials-carousel');
+  if (!carousel) return;
+
+  const track = document.getElementById('carousel-track');
+  const slides = track ? track.querySelectorAll('.carousel-slide') : [];
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const dotsContainer = document.getElementById('carousel-dots');
+
+  if (!track || slides.length === 0) return;
+
+  let currentIndex = 0;
+  let isAutoPlaying = true;
+  let autoPlayInterval;
+
+  // Create dots
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+    dot.setAttribute('role', 'tab');
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+      dot.setAttribute('aria-selected', index === currentIndex);
+    });
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    if (currentIndex < 0) currentIndex = slides.length - 1;
+    if (currentIndex >= slides.length) currentIndex = 0;
+    updateCarousel();
+  }
+
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  // Event listeners
+  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
+
+  // Keyboard navigation
+  carousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { prevSlide(); resetAutoPlay(); }
+    if (e.key === 'ArrowRight') { nextSlide(); resetAutoPlay(); }
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+      resetAutoPlay();
+    }
+  }
+
+  // Auto-play
+  function startAutoPlay() {
+    if (isAutoPlaying) {
+      autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+  }
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayInterval);
+    startAutoPlay();
+  }
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => {
+    clearInterval(autoPlayInterval);
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    if (isAutoPlaying) startAutoPlay();
+  });
+
+  // Pause when not visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(autoPlayInterval);
+    } else if (isAutoPlaying) {
+      startAutoPlay();
+    }
+  });
+
+  // Start auto-play
+  startAutoPlay();
+}
+
+// ============================================================================
+// 6. SMOOTH SCROLL BEHAVIOR
+// ============================================================================
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    const href = anchor.getAttribute('href');
+    if (href === '#') return;
+
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.history.pushState(null, null, href);
+      }
+    });
   });
 }
 
 // ============================================================================
-// 6. INITIALIZATION
+// 7. ACTIVE NAVIGATION LINK TRACKING
+// ============================================================================
+function updateActiveNavLink() {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href');
+    const isActive = href === currentPage || 
+                     (currentPage === '' && href === '/') ||
+                     (currentPage === '' && href === 'index.html') ||
+                     (currentPage === 'index.html' && href === '/');
+
+    if (isActive) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.classList.remove('active');
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+// ============================================================================
+// 8. ACCESSIBILITY ENHANCEMENTS
+// ============================================================================
+function initAccessibility() {
+  const skipLink = document.querySelector('.skip-link');
+  if (skipLink) {
+    skipLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      const mainContent = document.getElementById('main-content');
+      if (mainContent) {
+        mainContent.focus();
+        mainContent.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Handle Enter key on buttons
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const target = e.target;
+      if (target.role === 'button' && !['BUTTON', 'A', 'INPUT'].includes(target.tagName)) {
+        target.click();
+      }
+    }
+  });
+}
+
+// ============================================================================
+// 9. LAZY LOADING IMAGES
+// ============================================================================
+function initLazyLoading() {
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach((img) => {
+      imageObserver.observe(img);
+    });
+  }
+}
+
+// ============================================================================
+// 10. INITIALIZATION
 // ============================================================================
 function init() {
   initCookieConsent();
   initFormHandling();
-  initTestimonialsCarousel();
   initChatbot();
+  initTestimonialsCarousel();
+  initSmoothScroll();
+  updateActiveNavLink();
+  initAccessibility();
+  initLazyLoading();
+
+  // Log page load time for performance monitoring
+  if (window.performance && window.performance.timing) {
+    window.addEventListener('load', () => {
+      const perfData = window.performance.timing;
+      const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+      console.log('Page load time:', pageLoadTime, 'ms');
+    });
+  }
 }
 
+// Run when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
   init();
 }
+
+// ============================================================================
+// 11. ERROR HANDLING
+// ============================================================================
+window.addEventListener('error', (event) => {
+  console.error('Global error:', event.error);
+});
+
+window.addEventListener('unhandledrejection', (event) => {
+  console.error('Unhandled promise rejection:', event.reason);
+});
