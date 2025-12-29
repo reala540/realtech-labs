@@ -20,11 +20,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papNM8E9JteLoI0lp4rWuIwoMvVJE9idh+NROm4tW7x1YgnPZXoqBYwygJyI072QtdgQXl3k5ufADG7n2AFD2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
   
   <link rel="stylesheet" href="styles.css">
   
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%232563eb' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'>R</text></svg>">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://realtech-labs.vercel.app/"},
+      {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://realtech-labs.vercel.app/services.html"}
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -56,7 +67,7 @@
       </div>
     </section>
 
-    <!-- Service 1: Software -->
+    <!-- Service 1 -->
     <section class="service-section" id="software" aria-labelledby="service-software-title">
       <div class="container">
         <div class="service-row">
@@ -67,10 +78,7 @@
           </div>
           <div class="service-content">
             <h2 id="service-software-title">Software Development & Automation</h2>
-            <p>
-              Custom-built software solutions designed to improve efficiency, automate workflows, 
-              and support sustainable growth.
-            </p>
+            <p>Custom-built software solutions designed to improve efficiency, automate workflows, and support sustainable growth.</p>
             <h3>What's Included:</h3>
             <ul class="service-list">
               <li>Initial consultation to understand requirements</li>
@@ -96,7 +104,7 @@
       </div>
     </section>
 
-    <!-- Service 2: AI -->
+    <!-- Service 2 -->
     <section class="service-section service-section-alt" id="ai" aria-labelledby="service-ai-title">
       <div class="container">
         <div class="service-row">
@@ -107,10 +115,7 @@
           </div>
           <div class="service-content">
             <h2 id="service-ai-title">AI Solutions & Training</h2>
-            <p>
-              Practical AI services that help individuals and businesses leverage modern 
-              artificial intelligence effectively. We focus on real-world applications, not hype.
-            </p>
+            <p>Practical AI services that help individuals and businesses leverage modern artificial intelligence effectively.</p>
             <h3>What's Included:</h3>
             <ul class="service-list">
               <li>AI needs assessment and strategy</li>
@@ -135,7 +140,7 @@
       </div>
     </section>
 
-    <!-- Service 3: Transcription -->
+    <!-- Service 3 -->
     <section class="service-section" id="transcription" aria-labelledby="service-transcription-title">
       <div class="container">
         <div class="service-row">
@@ -146,17 +151,14 @@
           </div>
           <div class="service-content">
             <h2 id="service-transcription-title">Transcription, Captioning & Subtitling</h2>
-            <p>
-              Enterprise-ready transcription solutions delivered with accuracy, confidentiality, 
-              and flexible workflows designed for your specific needs.
-            </p>
+            <p>Enterprise-ready transcription solutions delivered with accuracy, confidentiality, and flexible workflows designed for your specific needs.</p>
             <a href="pricing.html" class="btn btn-primary">View Pricing</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Service 4: Moderation -->
+    <!-- Service 4 -->
     <section class="service-section service-section-alt" id="moderation" aria-labelledby="service-moderation-title">
       <div class="container">
         <div class="service-row">
@@ -167,17 +169,14 @@
           </div>
           <div class="service-content">
             <h2 id="service-moderation-title">Chat & Content Moderation</h2>
-            <p>
-              Reliable moderation services to maintain safe, respectful, and productive 
-              online environments for your community.
-            </p>
+            <p>Reliable moderation services to maintain safe, respectful, and productive online environments for your community.</p>
             <a href="contact.html" class="btn btn-primary">Get Started</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Service 5: Freelancing -->
+    <!-- Service 5 -->
     <section class="service-section" id="freelancing" aria-labelledby="service-freelancing-title">
       <div class="container">
         <div class="service-row">
@@ -188,10 +187,7 @@
           </div>
           <div class="service-content">
             <h2 id="service-freelancing-title">Freelancing Guidance & Mentorship</h2>
-            <p>
-              One-on-one mentorship for individuals looking to start or improve their 
-              freelancing careers with practical, actionable guidance.
-            </p>
+            <p>One-on-one mentorship for individuals looking to start or improve their freelancing careers with practical, actionable guidance.</p>
             <a href="pricing.html" class="btn btn-primary">Book Session</a>
           </div>
         </div>
@@ -240,17 +236,51 @@
         <div class="footer-section">
           <h3>Contact</h3>
           <p>
-            <a href="mailto:realltechlabs@gmail.com" class="contact-link">realltechlabs@gmail.com</a>
+            <a href="mailto:realltechlabs@gmail.com" class="contact-link">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              realltechlabs@gmail.com
+            </a>
           </p>
-          <p>24-hour response time</p>
-          <p>Global remote services</p>
+          <p>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            24-hour response time
+          </p>
+          <p>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            </svg>
+            Global remote services
+          </p>
         </div>
       </div>
+
       <div class="footer-bottom">
         <p>&copy; 2025 RealTech Labs. All rights reserved.</p>
+        <p class="security-badge">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Enterprise-grade security and encryption
+        </p>
       </div>
     </div>
   </footer>
+
+  <div id="cookie-consent" class="cookie-consent" role="dialog" aria-label="Cookie consent" aria-hidden="true">
+    <div class="cookie-content">
+      <p>
+        We use essential cookies for site functionality. By continuing, you agree to our
+        <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.
+      </p>
+      <button id="cookie-accept" class="btn btn-sm btn-primary" aria-label="Accept cookies">Accept</button>
+    </div>
+  </div>
 
   <script src="script.js" defer></script>
 </body>
