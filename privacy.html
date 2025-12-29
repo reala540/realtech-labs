@@ -172,6 +172,70 @@
     </div>
   </div>
 
+  <!-- Chatbot Widget -->
+  <div id="chatbot-widget" class="chatbot-widget">
+    <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chat">
+      <svg class="chatbot-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <svg class="chatbot-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    
+    <div id="chatbot-window" class="chatbot-window" aria-hidden="true">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>RealTech Labs</h4>
+            <span class="chatbot-status">We typically reply within 24 hours</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chatbot-message bot-message">
+          <p>👋 Hi there! How can we help you today?</p>
+          <p>Send us a message and we'll respond via email within 24 hours.</p>
+        </div>
+      </div>
+      
+      <form id="chatbot-form" class="chatbot-form" action="https://formspree.io/f/mzdpqgzv" method="POST">
+        <div class="chatbot-form-group">
+          <input type="text" id="chatbot-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="chatbot-form-group">
+          <input type="email" id="chatbot-email" name="email" placeholder="Your email" required>
+        </div>
+        <div class="chatbot-form-group chatbot-message-group">
+          <textarea id="chatbot-message" name="message" placeholder="Type your message..." rows="3" required></textarea>
+          <button type="submit" class="chatbot-send" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="New message from RealTech Labs Chatbot">
+      </form>
+      
+      <div id="chatbot-success" class="chatbot-success" style="display: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <p><strong>Message sent!</strong></p>
+        <p>We'll respond to your email within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js" defer></script>
 </body>
 </html>
