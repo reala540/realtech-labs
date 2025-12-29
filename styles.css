@@ -762,49 +762,35 @@ section { padding: var(--space-3xl) 0; }
 }
 
 /* ============================================================================
-   13. TRUST SECTION (Refined & Professional)
+   13. TRUST SECTION (Subtle Checkmarks)
    ============================================================================ */
 
 .trust-list {
   list-style: none;
   padding: 0;
-  margin-top: var(--space-lg);
-  display: grid;
-  gap: var(--space-md);
 }
 
 .trust-list li {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-sm);
+  gap: 0.65rem;
+  margin-bottom: var(--space-md);
+  font-weight: 500;
   color: var(--color-text);
   line-height: 1.6;
-  font-size: 0.95rem;
 }
 
-/* Icon: subtle, supportive, professional */
+/* Reduce dominance of the icon */
 .checkmark {
   flex-shrink: 0;
-  margin-top: 0.25rem;
+  margin-top: 0.3rem;
   color: var(--color-accent);
 }
 
-.checkmark svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
+.checkmark {
+  width: 14px;
+  height: 14px;
   stroke-width: 2;
-}
-
-/* Strong text hierarchy */
-.trust-list strong {
-  font-weight: 600;
-  color: var(--color-heading, #111827);
-}
-
-/* Optional: soften secondary text slightly */
-.trust-list li {
-  opacity: 0.95;
 }
 
 /* ============================================================================
