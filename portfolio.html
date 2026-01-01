@@ -4,153 +4,729 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#2563eb">
+
   <title>Portfolio & Work Samples | RealTech Labs</title>
   <meta name="description" content="Professional portfolio showcasing work samples across software development, AI solutions, transcription, moderation, and freelancing guidance.">
   <meta name="robots" content="index, follow">
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="Portfolio & Work Samples | RealTech Labs">
   <meta property="og:description" content="Professional work samples across software development, AI solutions, transcription, moderation, and consulting.">
   <meta property="og:url" content="https://realtech-labs.vercel.app/portfolio.html">
+
   <link rel="canonical" href="https://realtech-labs.vercel.app/portfolio.html">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%232563eb' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'>R</text></svg>">
+
+  <style>
+    .portfolio-disclaimer {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border: 2px solid #f59e0b;
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin: 0 auto var(--space-3xl);
+      max-width: 900px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .portfolio-disclaimer-icon {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin-bottom: var(--space-sm);
+      color: #f59e0b;
+    }
+
+    .portfolio-disclaimer h3 {
+      font-size: var(--font-size-xl);
+      color: #92400e;
+      margin-bottom: var(--space-sm);
+      font-weight: 700;
+    }
+
+    .portfolio-disclaimer p {
+      color: #78350f;
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+    .portfolio-category {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .portfolio-category-title {
+      font-size: var(--font-size-3xl);
+      color: var(--color-secondary);
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: 3px solid var(--color-primary);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .portfolio-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary-light);
+      transform: translateY(-2px);
+    }
+
+    .portfolio-badge {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: fit-content;
+    }
+
+    .portfolio-title {
+      font-size: var(--font-size-lg);
+      color: var(--color-secondary);
+      margin-bottom: var(--space-sm);
+      font-weight: 700;
+    }
+
+    .portfolio-details {
+      margin: var(--space-md) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      flex-grow: 1;
+    }
+
+    .portfolio-detail {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .portfolio-detail strong {
+      color: var(--color-primary);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+
+    .portfolio-detail p {
+      color: var(--color-text-light);
+      margin-bottom: 0;
+      font-size: var(--font-size-sm);
+    }
+
+    .portfolio-tech {
+      background-color: var(--color-bg-muted);
+      padding: var(--space-sm);
+      border-radius: var(--radius-md);
+      font-size: var(--font-size-sm);
+      border-left: 3px solid var(--color-accent);
+      color: var(--color-text-light);
+      margin-top: auto;
+    }
+
+    .intro-text {
+      max-width: 800px;
+      margin: 0 auto var(--space-2xl);
+      text-align: center;
+      color: var(--color-text-light);
+      line-height: var(--line-height-relaxed);
+    }
+  </style>
 </head>
 
 <body>
-<main id="main-content">
-<section class="section">
-<div class="container">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- Software Development & Automation -->
-<div class="portfolio-category">
-<h2 class="portfolio-category-title">Software Development & Automation</h2>
-<div class="portfolio-grid">
+  <header class="navbar" role="banner">
+    <div class="container navbar-container">
+      <a href="/" class="logo" aria-label="RealTech Labs Home">
+        <span class="logo-text">RealTech Labs</span>
+      </a>
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="/" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="portfolio.html" class="nav-link active" aria-current="page">Portfolio</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link btn btn-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<article class="portfolio-card">
-<h3 class="portfolio-title">E-Commerce Order Processing</h3>
-<div class="portfolio-details"></div>
-<h4>Demo Output Preview (Representative Sample)</h4>
-<svg width="100%" height="120">
-<rect width="100%" height="120" fill="#f3f4f6"/>
-<text x="20" y="30">Order → Payment API → Inventory Sync → Fulfillment</text>
-<text x="20" y="70">Status: Completed | Simulated Order #A1029</text>
-</svg>
-<p><em>This is a demo sample created from simulated data. No real client content is shown.</em></p>
-</article>
+  <main id="main-content">
+    <section class="page-header" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title">Portfolio & Work Samples</h1>
+        <p class="page-subtitle">
+          Real examples of our work across all service categories.
+          Samples are anonymized or used with permission to protect client confidentiality.
+        </p>
+      </div>
+    </section>
 
-</div>
-</div>
+    <section class="section">
+      <div class="container">
 
-<!-- AI Solutions -->
-<div class="portfolio-category">
-<h2 class="portfolio-category-title">AI Solutions & Training</h2>
-<div class="portfolio-grid">
+        <div class="portfolio-disclaimer">
+          <svg class="portfolio-disclaimer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          <h3>Portfolio Disclaimer</h3>
+          <p><strong>Demo / Representative Samples</strong> created from random audio, video, or simulated project data. No real client work is publicly displayed. All examples demonstrate our capabilities while maintaining strict client confidentiality.</p>
+        </div>
 
-<article class="portfolio-card">
-<h3 class="portfolio-title">Customer Support Chatbot</h3>
-<h4>Demo Output Preview (Representative Sample)</h4>
-<pre>
-User: I can’t access my account.
-AI: I can help with that. Have you tried resetting your password?
-User: Yes.
-AI: I’ll escalate this to a support specialist. Ticket ID: DEMO-1042
-</pre>
-<p><em>This is a demo sample created from simulated conversations.</em></p>
-</article>
+        <!-- Software Development & Automation -->
+        <div class="portfolio-category">
+          <h2 class="portfolio-category-title">Software Development & Automation</h2>
 
-</div>
-</div>
+          <div class="portfolio-grid">
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">E-Commerce Order Processing</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Challenge</strong>
+                  <p>Manual order processing consuming 4+ hours daily</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Solution</strong>
+                  <p>Custom automation integrating payment and inventory systems</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>95% process automation, 3+ hours daily savings</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Tech:</strong> Python, APIs, Automation
+              </div>
+            </article>
 
-<!-- Transcription & Captioning -->
-<div class="portfolio-category">
-<h2 class="portfolio-category-title">Transcription, Captioning & Subtitling</h2>
-<div class="portfolio-grid">
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">SaaS Dashboard Platform</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Challenge</strong>
+                  <p>Need for real-time analytics dashboard for growing customer base</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Solution</strong>
+                  <p>Full-stack web platform with user authentication and data visualization</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>Launched in 6 weeks, handles 10K+ daily users</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Tech:</strong> React, Node.js, PostgreSQL, AWS
+              </div>
+            </article>
 
-<article class="portfolio-card">
-<h3 class="portfolio-title">Medical Transcription</h3>
-<h4>Demo Output Preview (Representative Sample)</h4>
-<pre>
-Doctor: The patient presents with acute bronchitis.
-Patient: I’ve had chest tightness for three days.
-Doctor: We’ll prescribe azithromycin and recommend rest.
-</pre>
-<pre>
-NOTE: Clean-read medical transcription.
-</pre>
-<p><em>This is a demo sample created from simulated audio. No real client content is shown.</em></p>
-</article>
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Third-Party API Integration</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Challenge</strong>
+                  <p>Disconnected systems preventing workflow automation</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Solution</strong>
+                  <p>Custom API layer connecting 5+ external services</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>90% workflow automation, improved data accuracy</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Tech:</strong> REST APIs, Webhook Architecture
+              </div>
+            </article>
+          </div>
+        </div>
 
-<article class="portfolio-card">
-<h3 class="portfolio-title">Legal Transcription</h3>
-<h4>Demo Output Preview (Representative Sample)</h4>
-<pre>
-Attorney: Please state your name for the record.
-Client: John Doe.
-Attorney: Were you present on March 4th?
-Client: Yes, I was.
-</pre>
-<p><em>This is a demo sample created from simulated audio.</em></p>
-</article>
+        <!-- AI Solutions -->
+        <div class="portfolio-category">
+          <h2 class="portfolio-category-title">AI Solutions & Training</h2>
 
-<article class="portfolio-card">
-<h3 class="portfolio-title">Captioning Preview</h3>
-<h4>Demo Output Preview (Representative Sample)</h4>
-<pre>
-00:00:01.000 --> 00:00:03.500
-Welcome to today’s training session.
+          <div class="portfolio-grid">
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Customer Support Chatbot</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Challenge</strong>
+                  <p>Handling 200+ daily inquiries with slow response times</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Solution</strong>
+                  <p>AI chatbot with knowledge base and human escalation</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>70% instant answers, 30% reduced support load</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Tech:</strong> OpenAI API, Node.js, PostgreSQL
+              </div>
+            </article>
 
-00:00:03.500 --> 00:00:06.000
-We’ll cover the onboarding workflow.
-</pre>
-<p><em>This is a demo sample created from simulated video.</em></p>
-</article>
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Hands-On AI Implementation Workshop</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Challenge</strong>
+                  <p>Team wanted to integrate AI but lacked technical knowledge</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Solution</strong>
+                  <p>3-session training covering AI fundamentals and practical implementation</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>Team confidently deployed AI solution independently</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Format:</strong> Live Training, Hands-On Labs
+              </div>
+            </article>
 
-</div>
-</div>
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Content Generation & Summarization</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Challenge</strong>
+                  <p>Manual content creation and research summaries taking 20+ hours/week</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Solution</strong>
+                  <p>AI workflow automating research aggregation and summary generation</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>80% time savings, consistent quality output</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Tech:</strong> AI APIs, Automation Framework
+              </div>
+            </article>
+          </div>
+        </div>
 
-<!-- Content Moderation -->
-<div class="portfolio-category">
-<h2 class="portfolio-category-title">Chat & Content Moderation</h2>
-<div class="portfolio-grid">
+        <!-- Transcription & Captioning -->
+        <div class="portfolio-category">
+          <h2 class="portfolio-category-title">Transcription, Captioning & Subtitling</h2>
 
-<article class="portfolio-card">
-<h3 class="portfolio-title">Moderation Dashboard</h3>
-<h4>Demo Output Preview (Representative Sample)</h4>
-<svg width="100%" height="120">
-<rect width="100%" height="120" fill="#f9fafb"/>
-<text x="20" y="40">Flagged Messages: 12</text>
-<text x="20" y="70">Resolved: 10 | Pending: 2</text>
-</svg>
-<p><em>Demo moderation dashboard using simulated data.</em></p>
-</article>
+          <div class="portfolio-grid">
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Podcast Transcript Service</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Scope</strong>
+                  <p>15+ weekly episodes requiring accurate transcripts</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>Hybrid AI + human transcription with quality assurance</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>98% accuracy, 48-hour turnaround, improved SEO</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Method:</strong> Hybrid AI + Human Review
+              </div>
+            </article>
 
-</div>
-</div>
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Educational Video Captioning</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Scope</strong>
+                  <p>50+ training videos requiring professional captions</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>100% human transcription with speaker identification and timestamps</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>99%+ accuracy, improved accessibility, faster course completion</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Format:</strong> SRT, WebVTT, Full Transcripts
+              </div>
+            </article>
 
-<!-- Freelancing Guidance -->
-<div class="portfolio-category">
-<h2 class="portfolio-category-title">Freelancing Guidance & Mentorship</h2>
-<div class="portfolio-grid">
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Research Interview Transcription</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Scope</strong>
+                  <p>20+ academic interviews requiring verbatim transcription</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>100% human transcription with speaker labels and timestamps</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>99%+ accuracy, research-ready format, 5-day turnaround</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Method:</strong> 100% Human Transcription
+              </div>
+            </article>
+          </div>
+        </div>
 
-<article class="portfolio-card">
-<h3 class="portfolio-title">Freelance Growth Roadmap</h3>
-<h4>Demo Output Preview (Representative Sample)</h4>
-<svg width="100%" height="120">
-<rect width="100%" height="120" fill="#eef2ff"/>
-<text x="20" y="30">Month 1: Positioning & Profile</text>
-<text x="20" y="60">Month 2: Outreach & Proposals</text>
-<text x="20" y="90">Month 3: Scaling Clients</text>
-</svg>
-<p><em>Representative mentorship roadmap. Simulated scenario.</em></p>
-</article>
+        <!-- Content Moderation -->
+        <div class="portfolio-category">
+          <h2 class="portfolio-category-title">Chat & Content Moderation</h2>
 
-</div>
-</div>
+          <div class="portfolio-grid">
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Discord Community Moderation</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Scope</strong>
+                  <p>8K-member gaming community requiring 24/5 moderation</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>Professional moderation with clear rule enforcement and user support</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>Healthy community culture, 85% reduction in rule violations</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Focus:</strong> Rule Enforcement, User Relations
+              </div>
+            </article>
 
-</div>
-</section>
-</main>
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Forum Content Moderation</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Scope</strong>
+                  <p>Professional forum with 30K posts/month</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>Real-time comment review and spam/abuse prevention</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>99% spam blocked, community quality maintained</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Tools:</strong> Moderation Dashboard, Reporting
+              </div>
+            </article>
+
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Live Streaming Chat Moderation</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Scope</strong>
+                  <p>High-volume live stream chat (2K+ concurrent viewers)</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>Real-time moderation with harassment prevention and user support</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>Safe community environment, viewer retention increased</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Method:</strong> Real-Time Monitoring
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Freelancing Guidance -->
+        <div class="portfolio-category">
+          <h2 class="portfolio-category-title">Freelancing Guidance & Mentorship</h2>
+
+          <div class="portfolio-grid">
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Freelance Income Growth Program</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Client Situation</strong>
+                  <p>Struggling freelancer earning $1,500/month</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>4-session mentorship covering positioning, pricing, and client acquisition</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>Tripled income to $4,500/month within 90 days</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Duration:</strong> 4 Sessions, 3 Months
+              </div>
+            </article>
+
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Platform Selection & Setup Guidance</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Client Situation</strong>
+                  <p>New freelancer unsure which platform to use</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>Platform assessment, profile optimization, and competitive positioning</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>Landed first client in 2 weeks, consistent bookings</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Focus:</strong> Platform Strategy, Profile Setup
+              </div>
+            </article>
+
+            <article class="portfolio-card">
+              <span class="portfolio-badge">Demo Sample</span>
+              <h3 class="portfolio-title">Proposal & Pitch Improvement Program</h3>
+              <div class="portfolio-details">
+                <div class="portfolio-detail">
+                  <strong>Client Situation</strong>
+                  <p>Bidding on jobs but winning only 15% of proposals</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Approach</strong>
+                  <p>Proposal template creation, pitch coaching, and client psychology</p>
+                </div>
+                <div class="portfolio-detail">
+                  <strong>Result</strong>
+                  <p>Win rate increased to 50%, higher average project value</p>
+                </div>
+              </div>
+              <div class="portfolio-tech">
+                <strong>Method:</strong> 1-on-1 Coaching
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section" aria-labelledby="cta-portfolio-heading">
+      <div class="container cta-content">
+        <h2 id="cta-portfolio-heading">Ready to Work With Us?</h2>
+        <p>Schedule a free consultation to discuss your project or service needs.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+          <a href="https://calendly.com/realltechlabs/free-consultation" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">Book Consultation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>RealTech Labs</h3>
+          <p>Professional software, AI, and digital solutions built for reliability and impact.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Services</h3>
+          <nav aria-label="Services navigation">
+            <a href="services.html#software">Software & Automation</a>
+            <a href="services.html#ai">AI Solutions</a>
+            <a href="services.html#transcription">Transcription</a>
+            <a href="services.html#moderation">Moderation</a>
+            <a href="pricing.html">Pricing</a>
+          </nav>
+        </div>
+
+        <div class="footer-section">
+          <h3>Company</h3>
+          <nav aria-label="Company navigation">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+          </nav>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>
+            <a href="mailto:realltechlabs@gmail.com" class="contact-link">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              realltechlabs@gmail.com
+            </a>
+          </p>
+          <p>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            24-hour response time
+          </p>
+          <p>
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            </svg>
+            Global remote services
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 RealTech Labs. All rights reserved.</p>
+        <p class="security-badge">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Enterprise-grade security and encryption
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-consent" class="cookie-consent" role="dialog" aria-label="Cookie consent" aria-hidden="true">
+    <div class="cookie-content">
+      <p>
+        We use essential cookies for site functionality. By continuing, you agree to our
+        <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.
+      </p>
+      <button id="cookie-accept" class="btn btn-sm btn-primary" aria-label="Accept cookies">Accept</button>
+    </div>
+  </div>
+
+  <div id="chatbot-widget" class="chatbot-widget">
+    <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chat">
+      <svg class="chatbot-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <svg class="chatbot-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <div id="chatbot-window" class="chatbot-window" aria-hidden="true">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>RealTech Labs</h4>
+            <span class="chatbot-status">We typically reply within 24 hours</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="chatbot-message bot-message">
+          <p>Hi there! How can we help you today?</p>
+          <p>Send us a message and we'll respond via email within 24 hours.</p>
+        </div>
+      </div>
+
+      <form id="chatbot-form" class="chatbot-form" action="https://formspree.io/f/mzdpqgzv" method="POST">
+        <div class="chatbot-form-group">
+          <input type="text" id="chatbot-name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="chatbot-form-group">
+          <input type="email" id="chatbot-email" name="email" placeholder="Your email" required>
+        </div>
+        <div class="chatbot-form-group chatbot-message-group">
+          <textarea id="chatbot-message" name="message" placeholder="Type your message..." rows="3" required></textarea>
+          <button type="submit" class="chatbot-send" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="New message from RealTech Labs Chatbot">
+      </form>
+
+      <div id="chatbot-success" class="chatbot-success" style="display: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        <p><strong>Message sent!</strong></p>
+        <p>We'll respond to your email within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
