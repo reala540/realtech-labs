@@ -6,7 +6,7 @@ Official website for **RealTech Labs**, a remote-first digital services studio.
 This site represents RealTech Labs’ professional services in software development,
 AI solutions, transcription, moderation, and consulting.
 
-🌐 Live site: https://realtech-labs.vercel.app
+🌐 Live site: https://realtechlabs.vercel.app
 
 ## Services
 - Software Development & Automation
